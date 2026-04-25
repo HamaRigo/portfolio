@@ -289,7 +289,12 @@ a.ct-val:hover{color:#7d9aff;}
   width:96px;height:96px;background:linear-gradient(135deg,var(--accent2),var(--accent));
   border-radius:4px;display:flex;align-items:center;justify-content:center;
   font-family:var(--head);font-size:1.6rem;font-weight:800;color:#fff;
-  position:relative;z-index:2;box-shadow:0 0 0 1px rgba(79,110,247,.4);
+  position:relative;z-index:2;box-shadow:0 0 0 1px rgba(79,110,247,.4);  overflow: hidden;
+}
+.rpl-av img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .rpl{position:absolute;border-radius:4px;border:1px solid rgba(79,110,247,.35);animation:rplOut 2.5s ease-out infinite;opacity:0;}
 .rpl1{width:140px;height:140px;animation-delay:0s;}
@@ -312,6 +317,22 @@ footer{text-align:center;padding:2.5rem 5%;border-top:1px solid var(--border);fo
   .nav-links a{padding:.85rem 5%;}
   .nav-links a::after{display:none;}
   .nav-burger{display:flex;}
+  .h-card-av {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+.h-card-av img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 }
 @media(max-width:600px){
   section{padding:70px 5%;}
@@ -636,8 +657,8 @@ footer{text-align:center;padding:2.5rem 5%;border-top:1px solid var(--border);fo
           <div class="rpl rpl1"></div>
           <div class="rpl rpl2"></div>
           <div class="rpl rpl3"></div>
-          <div class="rpl-av">MB</div>
-        </div>
+          <div class="rpl-av">
+           <img src="assets/me.png" alt="MB">  </div>
       </div>
     </div>
   </div>
