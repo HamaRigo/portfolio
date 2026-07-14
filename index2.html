@@ -437,10 +437,11 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
         </div>
         <div class="tl-company">📍 Independent Consultant, Fintech &amp; Enterprise Clients · Doha, Qatar</div>
         <ul class="tl-bullets">
-          <li>Sole engineer on Rigoo Marine, a bilingual marine-services platform for the Qatar market — architecture, backend, frontend, and Dockerized deployment end-to-end</li>
-          <li>Built back-pressure controls, circuit breakers, retry, and bulkhead patterns into the service mesh so it scales horizontally without cascading failures</li>
-          <li>Layered Redis caching with a CDN and wired in Prometheus metrics and distributed tracing so problems surface and get traced quickly</li>
-          <li>Worked directly with fintech clients on PCI-DSS architecture reviews, aligning security posture with Qatar Central Bank requirements</li>
+          <li>Sole engineer on Rigoo Marine, a bilingual (Arabic/English, full RTL) marine-services platform for the Qatar market — owned the architecture, a 10-service Spring Cloud backend, the React frontend, and Dockerized deployment end-to-end</li>
+          <li>Built back-pressure controls and bounded resource use into the service mesh so the platform scales horizontally under load without cascading failures</li>
+          <li>Layered Redis caching with a CDN to keep API latency low, and wired in Prometheus metrics and distributed tracing so problems surface and get traced quickly instead of going unnoticed</li>
+          <li>Applied circuit breaker, retry, and bulkhead patterns across the service mesh, so a failing dependency degrades gracefully rather than taking the whole platform down with it</li>
+          <li>Worked directly with fintech clients on PCI-DSS architecture reviews and helped them align security posture with Qatar Central Bank requirements</li>
         </ul>
         <div class="tl-tags">
           <span class="tl-tag tag-green">Spring Cloud</span>
@@ -459,10 +460,10 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
         </div>
         <div class="tl-company">🏦 Arab Tunisian Bank (ATB) — Final-Year Engineering Internship</div>
         <ul class="tl-bullets">
-          <li>Rolled out a Keycloak-based IAM platform for 10,000+ users covering RBAC, SSO, and MFA to satisfy banking audit requirements</li>
-          <li>Decomposed the monolith into 15+ independently deployable microservices over async Kafka topics; Saga and outbox patterns kept data consistent</li>
-          <li>Built an OCR pipeline for document ingestion reaching 95% classification accuracy, cutting manual review workload by 80%</li>
-          <li>Kept PCI-DSS compliance intact across transaction handling, data storage, and access control</li>
+          <li>Rolled out a Keycloak-based IAM platform for 10,000+ users covering RBAC, SSO, and MFA, building the auth flows specifically to satisfy banking audit and compliance requirements</li>
+          <li>Decomposed the monolith into 15+ independently deployable microservices communicating over async Kafka topics; Saga and outbox patterns kept data consistent across service boundaries</li>
+          <li>Built an OCR pipeline for document ingestion that reached 95% classification accuracy and cut the manual review workload by 80%</li>
+          <li>Kept PCI-DSS compliance intact across transaction handling, data storage, and access control, with each layer audited and verified</li>
         </ul>
         <div class="tl-tags">
           <span class="tl-tag tag-blue">Keycloak IAM</span>
@@ -481,10 +482,12 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
         </div>
         <div class="tl-company">🏢 International Systems Engineering (ISE) · Tunis, Tunisia</div>
         <ul class="tl-bullets">
-          <li>Pushed REST API throughput past 1,000 req/sec through query optimisation, connection pooling, and Redis caching</li>
-          <li>Rebuilt the release process with CI/CD and infrastructure-as-code; deployment cycles dropped from 48 hours to 15 minutes</li>
-          <li>Designed and shipped an OAuth2 SSO system for 500+ enterprise users, handled fully in-house</li>
-          <li>Built a full real-estate platform on WordPress for property rental and sales, integrating 360° virtual-tour plugins</li>
+          <li>Built and maintained full-stack systems for enterprise clients in banking and services (Java Spring Boot backends, React/JavaScript frontends), taking each feature from requirements through code review and into production</li>
+          <li>Pushed REST API throughput past 1,000 req/sec through query optimisation, connection pooling, and Redis caching; replicated the same approach across multiple client platforms</li>
+          <li>Rebuilt the release process from scratch with CI/CD pipelines and infrastructure-as-code; deployment cycles dropped from 48 hours to 15 minutes, and the manual handoffs were gone</li>
+          <li>Designed and shipped an OAuth2 SSO system for 500+ enterprise users; token lifecycle, refresh flows, and service-level revocation were all handled in-house to meet client audit requirements</li>
+          <li>Tracked down backend bottlenecks and oversized frontend bundles on a client platform; once the fixes shipped, load times dropped 40% and user drop-off fell off noticeably</li>
+          <li>Built a full real-estate platform on WordPress for property rental and sales (apartments, warehouses, villas), integrating 360° virtual-tour plugins so clients could browse properties remotely before visiting</li>
         </ul>
         <div class="tl-tags">
           <span class="tl-tag tag-blue">OAuth2 SSO</span>
@@ -503,9 +506,29 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
         </div>
         <div class="tl-company">📡 Network eXpertise / Orange LTE, Alliance et Performance, Monsef Bey Technology Center · Tunisia</div>
         <ul class="tl-bullets">
-          <li>Led LTE/4G network deployment and a technician team (Network eXpertise/Orange), moved into IoT and hardware/software integration support (Alliance et Performance), then enterprise software incident diagnosis with Python-automated troubleshooting and ERP deployment under SLA (Monsef Bey Technology Center)</li>
+          <li>Telecom infrastructure (2018–2019): led LTE/4G network deployment and optimisation, including a technician team at Network eXpertise (Orange GSM/LTE), with proactive monitoring to improve network stability</li>
+          <li>Engineering &amp; IoT support (Alliance et Performance, 2019–2020): resolved hardware/software integration issues and troubleshot deployment problems alongside engineering teams</li>
+          <li>Enterprise software support (Monsef Bey Technology Center, 2020–2021): diagnosed complex software incidents, automated troubleshooting with Python scripts, and managed ERP deployments under SLA</li>
         </ul>
-        <div class="tl-tags">
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px dashed var(--border);">
+          <div style="font-family:var(--font-head);font-weight:700;font-size:.82rem;color:var(--amber);margin-bottom:.7rem;letter-spacing:.03em;">Key Skills &amp; Characteristics</div>
+          <div class="tech-cloud" style="justify-content:flex-start;max-width:100%;gap:.5rem;">
+            <span class="tech-chip">Microwave Radio Installation &amp; Transmission</span>
+            <span class="tech-chip">Analog &amp; Digital Electronics</span>
+            <span class="tech-chip">Computer Maintenance (HW/SW)</span>
+            <span class="tech-chip">GSM Network Equipment (Huawei, Nokia, Ericsson)</span>
+            <span class="tech-chip">Huawei 2G/3G/4G Installation</span>
+            <span class="tech-chip">PDH &amp; SDH Microwave Links</span>
+            <span class="tech-chip">Antenna Installation &amp; Commissioning</span>
+            <span class="tech-chip">Alcatel 2G → Huawei Node B Swap</span>
+            <span class="tech-chip">Strap Installation (2G/3G/4G)</span>
+            <span class="tech-chip">RRU Installation &amp; Powering</span>
+            <span class="tech-chip">Fiber Cabling (RRU–BTS)</span>
+            <span class="tech-chip">BTS Installation &amp; Grounding</span>
+            <span class="tech-chip">Power Supply &amp; Battery Wiring</span>
+          </div>
+        </div>
+        <div class="tl-tags" style="margin-top:1rem;">
           <span class="tl-tag tag-blue">LTE/4G</span>
           <span class="tl-tag tag-green">IoT Support</span>
           <span class="tl-tag tag-amber">ERP under SLA</span>
@@ -527,7 +550,15 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="proj-emoji">🛒</div>
       <div class="proj-name">Grocery Marketplace</div>
       <a href="https://github.com/HamaRigo/Grocery-marketplace" target="_blank" class="proj-link">github.com/HamaRigo/Grocery-marketplace ↗</a>
-      <p class="proj-desc">Multi-vendor grocery delivery marketplace (Jun 2026 — Present, independent, parallel to consulting). Store onboarding, catalog, cart, checkout, fulfillment, billing, and admin reporting end-to-end. Fastify/TypeScript modular monolith with a transactional outbox feeding Redis Streams, Elasticsearch-backed search, Stripe customer payments and vendor subscriptions, a configurable rider dispatch engine, live GPS tracking, and an LLM-powered agent with RAG for search, support, and recommendations.</p>
+      <span class="proj-link" style="color:var(--muted);">Jun 2026 — Present · Independent, parallel to consulting</span>
+      <ul class="tl-bullets">
+        <li>Multi-vendor grocery delivery marketplace: local supermarkets run their own storefront while customers browse nearby stores, order, and track delivery live — covers onboarding, catalog, cart, checkout, fulfillment, billing, and admin reporting end-to-end</li>
+        <li>Built the API on Fastify and TypeScript with Drizzle ORM over PostgreSQL, structured as a modular monolith that can be split into standalone services per module without a rewrite</li>
+        <li>Implemented a transactional outbox feeding Redis Streams as the event bus, so domain events (order placed, ready, delivered, cancelled) are never lost even if a downstream consumer is temporarily down</li>
+        <li>Integrated Stripe for both customer payments (PaymentIntents, idempotent webhooks) and vendor subscriptions (per-store pricing, trial periods, grace period on failed payment, automatic suspension)</li>
+        <li>Built a configurable rider dispatch engine and live GPS tracking over WebSocket, plus Elasticsearch-backed geo/full-text search for store and product discovery</li>
+        <li>Built an LLM-powered agent (OpenAI/Claude API) with RAG over the store and product catalog, covering product search assistance, order support, and store recommendations</li>
+      </ul>
       <div class="proj-stack">
         <span class="proj-tag">Fastify</span><span class="proj-tag">TypeScript</span><span class="proj-tag">Drizzle ORM</span>
         <span class="proj-tag">PostgreSQL</span><span class="proj-tag">Redis Streams</span><span class="proj-tag">Elasticsearch</span>
@@ -538,7 +569,15 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="proj-emoji">🚢</div>
       <div class="proj-name">Rigoo Marine Platform</div>
       <a href="https://rigoomarine.com" target="_blank" class="proj-link">rigoomarine.com ↗</a>
-      <p class="proj-desc">Bilingual (Arabic/English, full RTL) marine-services platform for a real Qatar company (Mar — Jun 2026). Sole engineer on a 10-service Spring Boot 3.2 / Java 17 backend behind a Spring Cloud Gateway with Eureka service discovery, Stripe Checkout with idempotent webhooks, a bilingual React 18 + Vite + MUI frontend with three role-based dashboards, and an LLM-powered chatbot with RAG over the service and parts catalog.</p>
+      <span class="proj-link" style="color:var(--muted);">Mar — Jun 2026 · github.com/HamaRigo/rigoo-marine</span>
+      <ul class="tl-bullets">
+        <li>Sole engineer on a live platform for a real Qatar marine-services company: clients book service against their vessels, buy parts and tools, and browse a used-boat marketplace, all in Arabic or English, with technicians and admins on their own dashboards</li>
+        <li>Architected and shipped a 10-service Spring Boot 3.2 / Java 17 backend behind a Spring Cloud Gateway with Eureka service discovery, per-service JWT security, and Redis-backed gateway rate limiting</li>
+        <li>Integrated Stripe Checkout with idempotent webhook ingestion across the parts-and-tools shop and invoicing (quotations, PDF export); checkout degrades safely to a "payments not configured" path when unkeyed</li>
+        <li>Built a fully bilingual React 18 + Vite + MUI frontend with end-to-end Arabic RTL (Emotion + stylis-plugin-rtl, react-i18next) and three role-based dashboards</li>
+        <li>Implemented phone-as-primary-identity auth (E.164 via libphonenumber), per-module Flyway migrations on PostgreSQL 15, and Dockerized the full stack with healthcheck-gated startup ordering and CI/CD via GitHub Actions</li>
+        <li>Integrated an LLM-powered chatbot/agent (OpenAI/Claude API) to handle client-facing support, with RAG over the platform's service and parts catalog so responses stay grounded in real data</li>
+      </ul>
       <div class="proj-stack">
         <span class="proj-tag">Spring Boot</span><span class="proj-tag">Java 17</span><span class="proj-tag">Spring Cloud</span>
         <span class="proj-tag">React</span><span class="proj-tag">Stripe</span><span class="proj-tag">LLM / RAG</span>
@@ -548,7 +587,12 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="proj-emoji">🔍</div>
       <div class="proj-name">Fraud Detection &amp; Real-Time Event Processing</div>
       <a href="https://github.com/HamaRigo/realtime-fraud-pipeline" target="_blank" class="proj-link">github.com/HamaRigo/realtime-fraud-pipeline ↗</a>
-      <p class="proj-desc">Partitioned Kafka pipeline with exactly-once semantics for financial transaction processing (2023 — 2024). Dead-letter queues and replay logic kept the pipeline available through upstream failures. Hybrid rule-based + ML-assisted scoring model caught more fraud than the old rule-only system, without adding false positives, with Prometheus alerting for fast triage.</p>
+      <span class="proj-link" style="color:var(--muted);">2023 — 2024</span>
+      <ul class="tl-bullets">
+        <li>Built a partitioned Kafka pipeline with exactly-once semantics for financial transaction processing; consumer groups, dead-letter queues, and replay logic kept the pipeline available through upstream failures</li>
+        <li>Combined deterministic rule-based checks with an ML-assisted scoring model in the detection layer; the hybrid approach caught more than the old rule-only system without adding false positives</li>
+        <li>Added Prometheus alerting and structured logging across the pipeline so anomalies could be isolated and triaged without manually inspecting Kafka offsets</li>
+      </ul>
       <div class="proj-stack">
         <span class="proj-tag">Kafka</span><span class="proj-tag">ML Scoring</span><span class="proj-tag">Prometheus</span><span class="proj-tag">Java</span>
       </div>
@@ -556,7 +600,11 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
     <div class="proj-card reveal" style="transition-delay:.3s">
       <div class="proj-emoji">🏠</div>
       <div class="proj-name">Real-Estate Platform (WordPress)</div>
-      <p class="proj-desc">Full real-estate platform for property rental and sales — apartments, warehouses, and villas — built end-to-end on WordPress during my time at ISE (2021 — 2023), integrating 360° virtual-tour plugins so clients could browse properties remotely before visiting.</p>
+      <span class="proj-link" style="color:var(--muted);">2021 — 2023 · Built during ISE</span>
+      <ul class="tl-bullets">
+        <li>Full real-estate platform for property rental and sales — apartments, warehouses, and villas — built end-to-end on WordPress</li>
+        <li>Integrated 360° virtual-tour plugins so clients could browse properties remotely before visiting in person</li>
+      </ul>
       <div class="proj-stack">
         <span class="proj-tag">WordPress</span><span class="proj-tag">360° Virtual Tours</span><span class="proj-tag">CMS</span>
       </div>
@@ -565,7 +613,11 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="proj-emoji">💬</div>
       <div class="proj-name">Real-Time Chat (University Project)</div>
       <a href="https://github.com/HamaRigo/PI_forum-chat" target="_blank" class="proj-link">github.com/HamaRigo/PI_forum-chat ↗</a>
-      <p class="proj-desc">WebSocket chat built into a Java + TypeScript forum/community app (2022 — 2023), with a Redis pub/sub layer for fan-out across server nodes and automatic client-side reconnection and session recovery after a brief network drop.</p>
+      <span class="proj-link" style="color:var(--muted);">2022 — 2023</span>
+      <ul class="tl-bullets">
+        <li>Built real-time chat into a Java + TypeScript forum/community app using WebSockets, with a Redis pub/sub layer so chat could fan out across server nodes rather than being pinned to one</li>
+        <li>Added client-side reconnection and session recovery so a brief network drop reconnected on its own without a page reload or lost messages</li>
+      </ul>
       <div class="proj-stack">
         <span class="proj-tag">WebSockets</span><span class="proj-tag">Redis Pub/Sub</span><span class="proj-tag">Java</span><span class="proj-tag">TypeScript</span>
       </div>
