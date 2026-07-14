@@ -92,7 +92,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;backdrop-filter:blur(20px) s
 @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(0,229,255,.6);}50%{box-shadow:0 0 0 5px rgba(0,229,255,0);}}
 .hero-name{font-family:var(--font-head);font-size:clamp(2.8rem,5vw,4.5rem);font-weight:800;line-height:1.05;background:linear-gradient(135deg,#fff 20%,var(--cyan) 50%,var(--pink) 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:300%;animation:shimmer 4s linear infinite;}
 @keyframes shimmer{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}
-.hero-title{font-size:1.1rem;color:var(--muted);font-weight:400;max-width:440px;}
+.hero-title{font-size:1.1rem;color:var(--muted);font-weight:400;max-width:460px;}
 .hero-title span{color:var(--amber);font-weight:600;}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;}
 .btn{padding:.75rem 1.8rem;border-radius:8px;font-family:var(--font-head);font-weight:600;font-size:.9rem;cursor:pointer;transition:all .3s;border:none;display:inline-flex;align-items:center;gap:.5rem;}
@@ -103,7 +103,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;backdrop-filter:blur(20px) s
 
 /* 3D FLOATING CARD */
 .hero-right{display:flex;justify-content:center;align-items:center;position:relative;}
-.card-scene{perspective:900px;width:300px;height:360px;}
+.card-scene{perspective:900px;width:300px;height:380px;}
 .hero-card{width:100%;height:100%;background:linear-gradient(145deg,rgba(61,45,232,.15),rgba(247,0,192,.1));border:1px solid rgba(255,255,255,.1);border-radius:24px;backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:2rem;animation:float3d 6s ease-in-out infinite;transform-style:preserve-3d;position:relative;z-index:2;box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 40px rgba(61,45,232,.15);}
 @keyframes float3d{0%,100%{transform:translateY(0) rotateX(2deg) rotateY(-3deg);}33%{transform:translateY(-12px) rotateX(-2deg) rotateY(3deg);}66%{transform:translateY(-6px) rotateX(3deg) rotateY(-1deg);}}
 .card-avatar{width:80px;height:80px;background:linear-gradient(135deg,var(--indigo),var(--pink));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:#fff;box-shadow:0 0 30px rgba(247,0,192,.4);}
@@ -142,7 +142,7 @@ section{padding:100px 5%;position:relative;z-index:2;}
    MARQUEE
 ============================================================ */
 .marquee-section{padding:30px 0;background:linear-gradient(90deg,rgba(61,45,232,.07),rgba(247,0,192,.07));border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;position:relative;z-index:2;}
-.marquee-track{display:flex;gap:2.5rem;animation:marqueeScroll 25s linear infinite;white-space:nowrap;}
+.marquee-track{display:flex;gap:2.5rem;animation:marqueeScroll 30s linear infinite;white-space:nowrap;}
 .marquee-item{font-family:var(--font-head);font-size:.85rem;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:.8rem;padding:0 1rem;}
 .marquee-item::after{content:'✦';color:var(--pink);font-size:.7rem;}
 @keyframes marqueeScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
@@ -200,6 +200,7 @@ section{padding:100px 5%;position:relative;z-index:2;}
 .proj-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.4),0 0 40px rgba(61,45,232,.15);border-color:rgba(61,45,232,.25);}
 .proj-emoji{font-size:2rem;}
 .proj-name{font-family:var(--font-head);font-size:1rem;font-weight:700;}
+.proj-link{font-size:.72rem;color:var(--cyan);font-weight:600;}
 .proj-desc{font-size:.84rem;color:var(--muted);line-height:1.6;flex:1;}
 .proj-stack{display:flex;flex-wrap:wrap;gap:.4rem;}
 .proj-tag{font-size:.7rem;padding:.2rem .6rem;border-radius:4px;background:rgba(255,255,255,.05);color:var(--muted);border:1px solid var(--border);font-family:var(--font-head);font-weight:600;}
@@ -313,7 +314,7 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
     <div class="hero-left reveal">
       <div class="avail-badge"><span class="avail-dot"></span>Available in Doha, Qatar</div>
       <h1 class="hero-name">Mohamed<br>Bouallagui</h1>
-      <p class="hero-title">Software Engineer — <span>Backend, Microservices</span> &amp; Distributed Systems</p>
+      <p class="hero-title">Software Engineer — <span>Backend, Microservices &amp; Distributed Systems</span>, with hands-on production experience integrating LLM agents and RAG.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary">Get In Touch ↗</a>
         <a href="#projects" class="btn btn-secondary">View Projects</a>
@@ -327,10 +328,10 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
           <div class="hero-card">
             <div class="card-avatar">MB</div>
             <div class="card-name">Mohamed Bouallagui</div>
-            <div class="card-role">Backend · Microservices · DevOps</div>
+            <div class="card-role">Full-Stack · Microservices · AI/RAG</div>
             <div class="card-stats">
-              <div class="stat"><div class="stat-val">4</div><span class="stat-lbl">Yrs Exp.</span></div>
-              <div class="stat"><div class="stat-val">35%</div><span class="stat-lbl">Latency ↓</span></div>
+              <div class="stat"><div class="stat-val">5</div><span class="stat-lbl">Yrs Exp.</span></div>
+              <div class="stat"><div class="stat-val">40%</div><span class="stat-lbl">Latency ↓</span></div>
               <div class="stat"><div class="stat-val">15+</div><span class="stat-lbl">Services</span></div>
             </div>
           </div>
@@ -344,33 +345,41 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
 <div class="marquee-section">
   <div class="marquee-track" id="marquee-track">
     <span class="marquee-item">ATB Bank</span>
-    <span class="marquee-item">ISE Consulting</span>
+    <span class="marquee-item">ISE</span>
     <span class="marquee-item">Rigoo Marine</span>
+    <span class="marquee-item">Grocery Marketplace</span>
     <span class="marquee-item">ESPRIT University</span>
     <span class="marquee-item">Kafka</span>
+    <span class="marquee-item">Redis Streams</span>
     <span class="marquee-item">Spring Boot</span>
+    <span class="marquee-item">Fastify</span>
     <span class="marquee-item">Kubernetes</span>
     <span class="marquee-item">Keycloak</span>
     <span class="marquee-item">PostgreSQL</span>
+    <span class="marquee-item">Elasticsearch</span>
     <span class="marquee-item">Docker</span>
     <span class="marquee-item">OAuth2</span>
     <span class="marquee-item">React</span>
-    <span class="marquee-item">Angular</span>
-    <span class="marquee-item">TensorFlow</span>
+    <span class="marquee-item">OpenAI / Claude RAG</span>
+    <span class="marquee-item">WordPress</span>
     <span class="marquee-item">ATB Bank</span>
-    <span class="marquee-item">ISE Consulting</span>
+    <span class="marquee-item">ISE</span>
     <span class="marquee-item">Rigoo Marine</span>
+    <span class="marquee-item">Grocery Marketplace</span>
     <span class="marquee-item">ESPRIT University</span>
     <span class="marquee-item">Kafka</span>
+    <span class="marquee-item">Redis Streams</span>
     <span class="marquee-item">Spring Boot</span>
+    <span class="marquee-item">Fastify</span>
     <span class="marquee-item">Kubernetes</span>
     <span class="marquee-item">Keycloak</span>
     <span class="marquee-item">PostgreSQL</span>
+    <span class="marquee-item">Elasticsearch</span>
     <span class="marquee-item">Docker</span>
     <span class="marquee-item">OAuth2</span>
     <span class="marquee-item">React</span>
-    <span class="marquee-item">Angular</span>
-    <span class="marquee-item">TensorFlow</span>
+    <span class="marquee-item">OpenAI / Claude RAG</span>
+    <span class="marquee-item">WordPress</span>
   </div>
 </div>
 
@@ -382,29 +391,32 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
     <div class="section-line"></div>
   </div>
   <div class="skills-grid">
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Java / Spring Boot</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-fill" data-width="95"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Java (Spring Boot), Node.js &amp; Fastify</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-fill" data-width="95"></div></div></div>
     <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Microservices Architecture</span><span class="skill-pct">92%</span></div><div class="skill-track"><div class="skill-fill" data-width="92"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Kafka / Event-Driven</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-fill" data-width="88"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Docker / Kubernetes</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-width="85"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">PostgreSQL / MongoDB / Redis</span><span class="skill-pct">87%</span></div><div class="skill-track"><div class="skill-fill" data-width="87"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Kafka &amp; Redis Streams (Event-Driven)</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-width="90"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Docker / Kubernetes / CI-CD</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-width="85"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">PostgreSQL / MongoDB / Elasticsearch</span><span class="skill-pct">87%</span></div><div class="skill-track"><div class="skill-fill" data-width="87"></div></div></div>
     <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">OAuth2 / Keycloak / JWT</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-width="90"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Angular / React / TypeScript</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-width="80"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Node.js / Python / Symfony</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" data-width="75"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">TensorFlow / MLflow / OCR</span><span class="skill-pct">72%</span></div><div class="skill-track"><div class="skill-fill" data-width="72"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">CI/CD / GitHub Actions</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-width="85"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">React &amp; TypeScript Frontend</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-width="80"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">LLM Integration &amp; RAG (OpenAI / Claude)</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-width="85"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">WordPress &amp; CMS Development</span><span class="skill-pct">78%</span></div><div class="skill-track"><div class="skill-fill" data-width="78"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Applied ML / Data Science Fundamentals</span><span class="skill-pct">72%</span></div><div class="skill-track"><div class="skill-fill" data-width="72"></div></div></div>
   </div>
   <div class="tech-cloud reveal">
     <span class="tech-chip">Java</span><span class="tech-chip">Spring Boot</span><span class="tech-chip">Spring Cloud</span>
-    <span class="tech-chip">Node.js</span><span class="tech-chip">Python</span><span class="tech-chip">Symfony</span>
-    <span class="tech-chip">Angular</span><span class="tech-chip">React</span><span class="tech-chip">TypeScript</span>
-    <span class="tech-chip">Kafka</span><span class="tech-chip">RabbitMQ</span><span class="tech-chip">WebSockets</span>
-    <span class="tech-chip">PostgreSQL</span><span class="tech-chip">MongoDB</span><span class="tech-chip">Redis</span>
+    <span class="tech-chip">Node.js</span><span class="tech-chip">Fastify</span><span class="tech-chip">Python</span>
+    <span class="tech-chip">React</span><span class="tech-chip">TypeScript</span>
+    <span class="tech-chip">Kafka</span><span class="tech-chip">Redis Streams</span><span class="tech-chip">WebSockets</span>
+    <span class="tech-chip">PostgreSQL</span><span class="tech-chip">MongoDB</span><span class="tech-chip">Drizzle ORM</span>
+    <span class="tech-chip">Elasticsearch</span>
     <span class="tech-chip">Docker</span><span class="tech-chip">Kubernetes</span><span class="tech-chip">CI/CD</span>
     <span class="tech-chip">GitHub Actions</span><span class="tech-chip">OAuth2</span><span class="tech-chip">JWT</span>
-    <span class="tech-chip">Keycloak</span><span class="tech-chip">OpenID Connect</span><span class="tech-chip">RBAC</span>
-    <span class="tech-chip">Tesseract OCR</span><span class="tech-chip">TensorFlow</span><span class="tech-chip">MLflow</span>
-    <span class="tech-chip">DDD</span><span class="tech-chip">CQRS</span><span class="tech-chip">Event-Driven</span>
-    <span class="tech-chip">PCI-DSS</span><span class="tech-chip">Anomaly Detection</span>
+    <span class="tech-chip">Keycloak</span><span class="tech-chip">RBAC</span><span class="tech-chip">SSO</span>
+    <span class="tech-chip">Stripe Payments</span><span class="tech-chip">LLM Agents / Chatbots</span>
+    <span class="tech-chip">RAG Pipelines</span><span class="tech-chip">Cursor (AI Dev)</span>
+    <span class="tech-chip">WordPress</span><span class="tech-chip">360° Virtual Tours</span>
+    <span class="tech-chip">DDD</span><span class="tech-chip">Event Sourcing / Outbox</span>
+    <span class="tech-chip">PCI-DSS</span><span class="tech-chip">Arabic RTL / i18n</span>
   </div>
 </section>
 
@@ -420,21 +432,21 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="tl-dot"></div>
       <div class="tl-card">
         <div class="tl-header">
-          <span class="tl-title">Software Engineering Consultant</span>
-          <span class="tl-date">Apr 2025 — Present</span>
+          <span class="tl-title">Full Stack Engineering Consultant, Backend &amp; Distributed Systems</span>
+          <span class="tl-date">Aug 2025 — Present</span>
         </div>
-        <div class="tl-company">📍 Doha, Qatar</div>
+        <div class="tl-company">📍 Independent Consultant, Fintech &amp; Enterprise Clients · Doha, Qatar</div>
         <ul class="tl-bullets">
-          <li>Reduced API latency by 35% through advanced caching optimization strategies</li>
-          <li>Built and orchestrated Kafka event-driven pipelines at scale</li>
-          <li>Automated 90% of CI/CD workflows, drastically cutting release overhead</li>
-          <li>Achieved 99.9% system uptime across production deployments</li>
+          <li>Sole engineer on Rigoo Marine, a bilingual marine-services platform for the Qatar market — architecture, backend, frontend, and Dockerized deployment end-to-end</li>
+          <li>Built back-pressure controls, circuit breakers, retry, and bulkhead patterns into the service mesh so it scales horizontally without cascading failures</li>
+          <li>Layered Redis caching with a CDN and wired in Prometheus metrics and distributed tracing so problems surface and get traced quickly</li>
+          <li>Worked directly with fintech clients on PCI-DSS architecture reviews, aligning security posture with Qatar Central Bank requirements</li>
         </ul>
         <div class="tl-tags">
-          <span class="tl-tag tag-green">Kafka</span>
-          <span class="tl-tag tag-blue">CI/CD</span>
-          <span class="tl-tag tag-pink">Caching</span>
-          <span class="tl-tag tag-amber">99.9% Uptime</span>
+          <span class="tl-tag tag-green">Spring Cloud</span>
+          <span class="tl-tag tag-blue">PCI-DSS</span>
+          <span class="tl-tag tag-pink">Qatar Market</span>
+          <span class="tl-tag tag-amber">Sole Engineer</span>
         </div>
       </div>
     </div>
@@ -442,19 +454,20 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="tl-dot"></div>
       <div class="tl-card">
         <div class="tl-header">
-          <span class="tl-title">Full-Stack Engineer — Banking Platform</span>
-          <span class="tl-date">Mar 2024 — Sep 2024</span>
+          <span class="tl-title">Full Stack Engineer — End-of-Studies Project (PFE)</span>
+          <span class="tl-date">Sep 2024 — Feb 2025</span>
         </div>
-        <div class="tl-company">🏦 ATB Bank — PFE / CDD</div>
+        <div class="tl-company">🏦 Arab Tunisian Bank (ATB) — Final-Year Engineering Internship</div>
         <ul class="tl-bullets">
-          <li>Developed OCR fraud detection system achieving 95% detection accuracy</li>
-          <li>Implemented Keycloak IAM securing 10,000+ active users</li>
-          <li>Built 15+ Spring Boot microservices in a distributed banking ecosystem</li>
+          <li>Rolled out a Keycloak-based IAM platform for 10,000+ users covering RBAC, SSO, and MFA to satisfy banking audit requirements</li>
+          <li>Decomposed the monolith into 15+ independently deployable microservices over async Kafka topics; Saga and outbox patterns kept data consistent</li>
+          <li>Built an OCR pipeline for document ingestion reaching 95% classification accuracy, cutting manual review workload by 80%</li>
+          <li>Kept PCI-DSS compliance intact across transaction handling, data storage, and access control</li>
         </ul>
         <div class="tl-tags">
-          <span class="tl-tag tag-blue">Spring Boot</span>
-          <span class="tl-tag tag-green">Keycloak</span>
-          <span class="tl-tag tag-pink">OCR Fraud Detection</span>
+          <span class="tl-tag tag-blue">Keycloak IAM</span>
+          <span class="tl-tag tag-green">Kafka Microservices</span>
+          <span class="tl-tag tag-pink">OCR &amp; ML</span>
           <span class="tl-tag tag-amber">10K+ Users</span>
         </div>
       </div>
@@ -463,20 +476,39 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="tl-dot"></div>
       <div class="tl-card">
         <div class="tl-header">
-          <span class="tl-title">Technical Consultant</span>
-          <span class="tl-date">Oct 2020 — Dec 2023</span>
+          <span class="tl-title">Full Stack Developer, Enterprise Platforms</span>
+          <span class="tl-date">Nov 2021 — Feb 2023</span>
         </div>
-        <div class="tl-company">🏢 ISE — 3 Years</div>
+        <div class="tl-company">🏢 International Systems Engineering (ISE) · Tunis, Tunisia</div>
         <ul class="tl-bullets">
-          <li>Built 360° digital platform driving +40% user engagement increase</li>
-          <li>Reduced deployment cycles from days down to minutes with automated pipelines</li>
-          <li>Implemented JWT-based Single Sign-On (SSO) authentication system</li>
+          <li>Pushed REST API throughput past 1,000 req/sec through query optimisation, connection pooling, and Redis caching</li>
+          <li>Rebuilt the release process with CI/CD and infrastructure-as-code; deployment cycles dropped from 48 hours to 15 minutes</li>
+          <li>Designed and shipped an OAuth2 SSO system for 500+ enterprise users, handled fully in-house</li>
+          <li>Built a full real-estate platform on WordPress for property rental and sales, integrating 360° virtual-tour plugins</li>
         </ul>
         <div class="tl-tags">
-          <span class="tl-tag tag-blue">JWT SSO</span>
-          <span class="tl-tag tag-green">+40% Engagement</span>
-          <span class="tl-tag tag-pink">DevOps</span>
-          <span class="tl-tag tag-amber">Digital Platform</span>
+          <span class="tl-tag tag-blue">OAuth2 SSO</span>
+          <span class="tl-tag tag-green">CI/CD</span>
+          <span class="tl-tag tag-pink">WordPress</span>
+          <span class="tl-tag tag-amber">360° Tours</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item reveal-left" style="transition-delay:.45s">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <span class="tl-title">Telecom Infrastructure &amp; Software Support</span>
+          <span class="tl-date">2018 — 2021</span>
+        </div>
+        <div class="tl-company">📡 Network eXpertise / Orange LTE, Alliance et Performance, Monsef Bey Technology Center · Tunisia</div>
+        <ul class="tl-bullets">
+          <li>Led LTE/4G network deployment and a technician team (Network eXpertise/Orange), moved into IoT and hardware/software integration support (Alliance et Performance), then enterprise software incident diagnosis with Python-automated troubleshooting and ERP deployment under SLA (Monsef Bey Technology Center)</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag tag-blue">LTE/4G</span>
+          <span class="tl-tag tag-green">IoT Support</span>
+          <span class="tl-tag tag-amber">ERP under SLA</span>
         </div>
       </div>
     </div>
@@ -492,54 +524,50 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
   </div>
   <div class="projects-grid">
     <div class="proj-card reveal">
-      <div class="proj-emoji">🚢</div>
-      <div class="proj-name">Rigoo Marine Platform</div>
-      <p class="proj-desc">Enterprise-grade marine operations platform built on 9 Spring Boot microservices with Kafka event-driven architecture. Designed for 99.9% uptime with JWT authentication and cloud-native deployment.</p>
+      <div class="proj-emoji">🛒</div>
+      <div class="proj-name">Grocery Marketplace</div>
+      <a href="https://github.com/HamaRigo/Grocery-marketplace" target="_blank" class="proj-link">github.com/HamaRigo/Grocery-marketplace ↗</a>
+      <p class="proj-desc">Multi-vendor grocery delivery marketplace (Jun 2026 — Present, independent, parallel to consulting). Store onboarding, catalog, cart, checkout, fulfillment, billing, and admin reporting end-to-end. Fastify/TypeScript modular monolith with a transactional outbox feeding Redis Streams, Elasticsearch-backed search, Stripe customer payments and vendor subscriptions, a configurable rider dispatch engine, live GPS tracking, and an LLM-powered agent with RAG for search, support, and recommendations.</p>
       <div class="proj-stack">
-        <span class="proj-tag">Java</span><span class="proj-tag">Spring Boot</span><span class="proj-tag">Kafka</span>
-        <span class="proj-tag">PostgreSQL</span><span class="proj-tag">Docker</span><span class="proj-tag">Kubernetes</span><span class="proj-tag">JWT</span>
+        <span class="proj-tag">Fastify</span><span class="proj-tag">TypeScript</span><span class="proj-tag">Drizzle ORM</span>
+        <span class="proj-tag">PostgreSQL</span><span class="proj-tag">Redis Streams</span><span class="proj-tag">Elasticsearch</span>
+        <span class="proj-tag">Stripe</span><span class="proj-tag">LLM / RAG</span>
       </div>
     </div>
     <div class="proj-card reveal" style="transition-delay:.1s">
-      <div class="proj-emoji">🔍</div>
-      <div class="proj-name">Fraud Detection &amp; Credit MLOps</div>
-      <p class="proj-desc">OCR-based document verification processing 1,000+ docs/day (10min → 2min). Anomaly detection improving fraud accuracy by 35%. Monolith → microservices migration: 4h → 15min deploys. Enterprise SSO with PCI-DSS compliance.</p>
+      <div class="proj-emoji">🚢</div>
+      <div class="proj-name">Rigoo Marine Platform</div>
+      <a href="https://rigoomarine.com" target="_blank" class="proj-link">rigoomarine.com ↗</a>
+      <p class="proj-desc">Bilingual (Arabic/English, full RTL) marine-services platform for a real Qatar company (Mar — Jun 2026). Sole engineer on a 10-service Spring Boot 3.2 / Java 17 backend behind a Spring Cloud Gateway with Eureka service discovery, Stripe Checkout with idempotent webhooks, a bilingual React 18 + Vite + MUI frontend with three role-based dashboards, and an LLM-powered chatbot with RAG over the service and parts catalog.</p>
       <div class="proj-stack">
-        <span class="proj-tag">Spring Boot</span><span class="proj-tag">React</span><span class="proj-tag">Tesseract</span>
-        <span class="proj-tag">TensorFlow</span><span class="proj-tag">MLflow</span><span class="proj-tag">Keycloak</span>
-        <span class="proj-tag">Kafka</span><span class="proj-tag">Redis</span><span class="proj-tag">K8s</span>
+        <span class="proj-tag">Spring Boot</span><span class="proj-tag">Java 17</span><span class="proj-tag">Spring Cloud</span>
+        <span class="proj-tag">React</span><span class="proj-tag">Stripe</span><span class="proj-tag">LLM / RAG</span>
       </div>
     </div>
     <div class="proj-card reveal" style="transition-delay:.2s">
-      <div class="proj-emoji">💬</div>
-      <div class="proj-name">Enterprise Messaging Hub</div>
-      <p class="proj-desc">Real-time messaging platform supporting 1,000+ concurrent WebSocket users. Built with Spring Boot backend and Angular frontend, powered by Redis for low-latency pub/sub communication.</p>
+      <div class="proj-emoji">🔍</div>
+      <div class="proj-name">Fraud Detection &amp; Real-Time Event Processing</div>
+      <a href="https://github.com/HamaRigo/realtime-fraud-pipeline" target="_blank" class="proj-link">github.com/HamaRigo/realtime-fraud-pipeline ↗</a>
+      <p class="proj-desc">Partitioned Kafka pipeline with exactly-once semantics for financial transaction processing (2023 — 2024). Dead-letter queues and replay logic kept the pipeline available through upstream failures. Hybrid rule-based + ML-assisted scoring model caught more fraud than the old rule-only system, without adding false positives, with Prometheus alerting for fast triage.</p>
       <div class="proj-stack">
-        <span class="proj-tag">Spring Boot</span><span class="proj-tag">Angular</span><span class="proj-tag">Redis</span><span class="proj-tag">WebSockets</span>
+        <span class="proj-tag">Kafka</span><span class="proj-tag">ML Scoring</span><span class="proj-tag">Prometheus</span><span class="proj-tag">Java</span>
       </div>
     </div>
     <div class="proj-card reveal" style="transition-delay:.3s">
-      <div class="proj-emoji">📦</div>
-      <div class="proj-name">Predictive Inventory System</div>
-      <p class="proj-desc">Real-time supply chain analytics platform with predictive inventory management. Delivers actionable insights to operations teams via an Angular frontend backed by Symfony and PostgreSQL.</p>
+      <div class="proj-emoji">🏠</div>
+      <div class="proj-name">Real-Estate Platform (WordPress)</div>
+      <p class="proj-desc">Full real-estate platform for property rental and sales — apartments, warehouses, and villas — built end-to-end on WordPress during my time at ISE (2021 — 2023), integrating 360° virtual-tour plugins so clients could browse properties remotely before visiting.</p>
       <div class="proj-stack">
-        <span class="proj-tag">Symfony</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">Angular</span>
+        <span class="proj-tag">WordPress</span><span class="proj-tag">360° Virtual Tours</span><span class="proj-tag">CMS</span>
       </div>
     </div>
     <div class="proj-card reveal" style="transition-delay:.4s">
-      <div class="proj-emoji">🔐</div>
-      <div class="proj-name">Enterprise IAM Platform</div>
-      <p class="proj-desc">Identity and access management system using Keycloak, JWT, and RBAC serving 500+ bank employees. Achieved full PCI-DSS compliance with OpenID Connect-based SSO across enterprise applications.</p>
+      <div class="proj-emoji">💬</div>
+      <div class="proj-name">Real-Time Chat (University Project)</div>
+      <a href="https://github.com/HamaRigo/PI_forum-chat" target="_blank" class="proj-link">github.com/HamaRigo/PI_forum-chat ↗</a>
+      <p class="proj-desc">WebSocket chat built into a Java + TypeScript forum/community app (2022 — 2023), with a Redis pub/sub layer for fan-out across server nodes and automatic client-side reconnection and session recovery after a brief network drop.</p>
       <div class="proj-stack">
-        <span class="proj-tag">Keycloak</span><span class="proj-tag">JWT</span><span class="proj-tag">RBAC</span><span class="proj-tag">OpenID</span><span class="proj-tag">PCI-DSS</span>
-      </div>
-    </div>
-    <div class="proj-card reveal" style="transition-delay:.5s">
-      <div class="proj-emoji">⚡</div>
-      <div class="proj-name">360° Digital Platform</div>
-      <p class="proj-desc">Comprehensive digital transformation platform driving +40% user engagement. Features JWT SSO, automated deployment pipelines reducing release time from days to minutes, and microservices architecture.</p>
-      <div class="proj-stack">
-        <span class="proj-tag">Java</span><span class="proj-tag">Angular</span><span class="proj-tag">JWT</span><span class="proj-tag">CI/CD</span><span class="proj-tag">Docker</span>
+        <span class="proj-tag">WebSockets</span><span class="proj-tag">Redis Pub/Sub</span><span class="proj-tag">Java</span><span class="proj-tag">TypeScript</span>
       </div>
     </div>
   </div>
@@ -557,8 +585,8 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="edu-cards reveal-left">
         <div class="edu-card">
           <div class="edu-degree">🎓 Engineering Degree — Computer Engineering</div>
-          <div class="edu-school">ESPRIT — École Supérieure Privée d'Ingénierie</div>
-          <div class="edu-year">Graduated 2024</div>
+          <div class="edu-school">ESPRIT — École Supérieure Privée d'Ingénierie et de Technologie</div>
+          <div class="edu-year">Graduated 2025</div>
         </div>
         <div class="edu-card">
           <div class="edu-degree">🎓 Bachelor Degree — Computer Science</div>
@@ -567,6 +595,10 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
         </div>
       </div>
       <div class="cert-cards reveal-left" style="transition-delay:.15s">
+        <div class="cert-card">
+          <div class="cert-icon">☁️</div>
+          <div class="cert-name">AWS Certified Developer, Associate</div>
+        </div>
         <div class="cert-card">
           <div class="cert-icon">☕</div>
           <div class="cert-name">Oracle Certified Associate Java SE 8</div>
@@ -584,11 +616,11 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       </div>
       <div class="lang-card">
         <span class="lang-name">🇬🇧 English</span>
-        <span class="lang-badge lang-prof">Professional</span>
+        <span class="lang-badge lang-prof">Professional (C1)</span>
       </div>
       <div class="lang-card">
         <span class="lang-name">🇫🇷 French</span>
-        <span class="lang-badge lang-prof">Professional</span>
+        <span class="lang-badge lang-prof">Professional (C1)</span>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.3rem;margin-top:.5rem;">
         <div style="font-family:var(--font-head);font-weight:700;margin-bottom:.8rem;font-size:.9rem;color:var(--amber);">🎯 Target Sectors</div>
@@ -650,7 +682,7 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
 </section>
 
 <footer>
-  <p>© 2025 Mohamed Bouallagui — Designed &amp; Built with ❤️ | Software Engineer · Doha, Qatar</p>
+  <p>© 2026 Mohamed Bouallagui — Designed &amp; Built with ❤️ | Software Engineer · Doha, Qatar</p>
 </footer>
 
 <script>
