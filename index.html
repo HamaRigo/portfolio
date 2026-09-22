@@ -204,6 +204,18 @@ section{padding:100px 5%;position:relative;z-index:2;}
 .proj-desc{font-size:.84rem;color:var(--muted);line-height:1.6;flex:1;}
 .proj-stack{display:flex;flex-wrap:wrap;gap:.4rem;}
 .proj-tag{font-size:.7rem;padding:.2rem .6rem;border-radius:4px;background:rgba(255,255,255,.05);color:var(--muted);border:1px solid var(--border);font-family:var(--font-head);font-weight:600;}
+.proj-embed{position:relative;width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface2);}
+.proj-embed iframe{width:100%;height:100%;border:0;display:block;}
+.proj-buttons{display:flex;flex-wrap:wrap;gap:.5rem;}
+.proj-btn{font-size:.72rem;font-weight:700;font-family:var(--font-head);padding:.4rem .8rem;border-radius:50px;border:1px solid var(--border);transition:all .3s;}
+.proj-btn-live{color:var(--cyan);border-color:rgba(0,229,255,.3);}
+.proj-btn-live:hover{background:rgba(0,229,255,.1);}
+.proj-btn-vercel{color:var(--text);border-color:var(--border);}
+.proj-btn-vercel:hover{background:rgba(255,255,255,.08);}
+.proj-btn-gh{color:var(--pink);border-color:rgba(247,0,192,.3);}
+.proj-btn-gh:hover{background:rgba(247,0,192,.1);}
+.proj-arch{font-family:'Courier New',monospace;font-size:.72rem;color:var(--muted);background:rgba(255,255,255,.03);border:1px dashed var(--border);border-radius:8px;padding:.5rem .7rem;overflow-x:auto;white-space:nowrap;}
+@media(max-width:600px){.proj-arch{white-space:normal;}}
 
 /* ============================================================
    EDUCATION & LANGUAGES
@@ -552,6 +564,7 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="proj-name">Grocery Marketplace</div>
       <a href="https://github.com/HamaRigo/Grocery-marketplace" target="_blank" class="proj-link">github.com/HamaRigo/Grocery-marketplace ↗</a>
       <span class="proj-link" style="color:var(--muted);">Jun 2026 — Present · Independent, parallel to consulting</span>
+      <div class="proj-arch">Client (React) → Fastify API → Outbox → Redis Streams → PostgreSQL / Elasticsearch</div>
       <ul class="tl-bullets">
         <li>Multi-vendor grocery delivery marketplace: local supermarkets run their own storefront while customers browse nearby stores, order, and track delivery live — covers onboarding, catalog, cart, checkout, fulfillment, billing, and admin reporting end-to-end</li>
         <li>Built the API on Fastify and TypeScript with Drizzle ORM over PostgreSQL, structured as a modular monolith that can be split into standalone services per module without a rewrite</li>
@@ -569,8 +582,16 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
     <div class="proj-card reveal" style="transition-delay:.1s">
       <div class="proj-emoji">🚢</div>
       <div class="proj-name">Rigoo Marine Platform</div>
-      <a href="https://rigoomarine.com" target="_blank" class="proj-link">rigoomarine.com ↗</a>
-      <span class="proj-link" style="color:var(--muted);">Mar — Jun 2026 · github.com/HamaRigo/rigoo-marine</span>
+      <span class="proj-link" style="color:var(--muted);">Mar — Jun 2026</span>
+      <div class="proj-embed">
+        <iframe src="https://rigoo-marine-frontend.vercel.app/" title="Rigoo Marine — live preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      </div>
+      <div class="proj-buttons">
+        <a href="https://rigoomarine.com" target="_blank" class="proj-btn proj-btn-live">Live Site ↗</a>
+        <a href="https://rigoo-marine-frontend.vercel.app/" target="_blank" class="proj-btn proj-btn-vercel">Vercel ↗</a>
+        <a href="https://github.com/HamaRigo/rigoo-marine" target="_blank" class="proj-btn proj-btn-gh">GitHub ↗</a>
+      </div>
+      <div class="proj-arch">React (Vite/MUI) → Spring Cloud Gateway (Eureka) → 10 Microservices → PostgreSQL</div>
       <ul class="tl-bullets">
         <li>Sole engineer on a live platform for a real Qatar marine-services company: clients book service against their vessels, buy parts and tools, and browse a used-boat marketplace, all in Arabic or English, with technicians and admins on their own dashboards</li>
         <li>Architected and shipped a 10-service Spring Boot 3.2 / Java 17 backend behind a Spring Cloud Gateway with Eureka service discovery, per-service JWT security, and Redis-backed gateway rate limiting</li>
@@ -589,6 +610,7 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="proj-name">Fraud Detection &amp; Real-Time Event Processing</div>
       <a href="https://github.com/HamaRigo/realtime-fraud-pipeline" target="_blank" class="proj-link">github.com/HamaRigo/realtime-fraud-pipeline ↗</a>
       <span class="proj-link" style="color:var(--muted);">2023 — 2024</span>
+      <div class="proj-arch">Transaction Stream → Kafka (partitioned) → Rule Engine + ML Scorer → Prometheus Alerts</div>
       <ul class="tl-bullets">
         <li>Built a partitioned Kafka pipeline with exactly-once semantics for financial transaction processing; consumer groups, dead-letter queues, and replay logic kept the pipeline available through upstream failures</li>
         <li>Combined deterministic rule-based checks with an ML-assisted scoring model in the detection layer; the hybrid approach caught more than the old rule-only system without adding false positives</li>
@@ -602,6 +624,7 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="proj-emoji">🏠</div>
       <div class="proj-name">Real-Estate Platform (WordPress)</div>
       <span class="proj-link" style="color:var(--muted);">2021 — 2023 · Built during ISE</span>
+      <div class="proj-arch">Visitor → WordPress + 360° Tour Plugin → MySQL</div>
       <ul class="tl-bullets">
         <li>Full real-estate platform for property rental and sales — apartments, warehouses, and villas — built end-to-end on WordPress</li>
         <li>Integrated 360° virtual-tour plugins so clients could browse properties remotely before visiting in person</li>
@@ -615,6 +638,7 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="proj-name">Real-Time Chat (University Project)</div>
       <a href="https://github.com/HamaRigo/PI_forum-chat" target="_blank" class="proj-link">github.com/HamaRigo/PI_forum-chat ↗</a>
       <span class="proj-link" style="color:var(--muted);">2022 — 2023</span>
+      <div class="proj-arch">Client → WebSocket Gateway → Redis Pub/Sub → Fan-out to Server Nodes</div>
       <ul class="tl-bullets">
         <li>Built real-time chat into a Java + TypeScript forum/community app using WebSockets, with a Redis pub/sub layer so chat could fan out across server nodes rather than being pinned to one</li>
         <li>Added client-side reconnection and session recovery so a brief network drop reconnected on its own without a page reload or lost messages</li>
