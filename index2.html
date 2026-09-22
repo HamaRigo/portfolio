@@ -748,6 +748,71 @@ section {
   font-weight: 500;
 }
 
+.project-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+
+.project-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.project-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-btn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  transition: all 0.25s var(--ease);
+}
+
+.project-btn-live {
+  color: var(--emerald);
+  border-color: #a7f3d0;
+}
+.project-btn-live:hover { background: #d1fae5; }
+
+.project-btn-vercel {
+  color: var(--text-secondary);
+  border-color: var(--border);
+}
+.project-btn-vercel:hover { background: var(--bg-soft); }
+
+.project-btn-gh {
+  color: var(--accent);
+  border-color: var(--accent-light);
+}
+.project-btn-gh:hover { background: var(--accent-light); }
+
+.project-arch {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-soft);
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .project-arch { white-space: normal; }
+}
+
 /* EDUCATION */
 .education-grid {
   display: grid;
@@ -1455,6 +1520,7 @@ footer {
         <div class="project-icon">GM</div>
         <h3 class="project-name">Grocery Marketplace</h3>
         <a href="https://github.com/HamaRigo/Grocery-marketplace" target="_blank" class="project-link">github.com/HamaRigo/Grocery-marketplace ↗</a>
+        <div class="project-arch">Client (React) → Fastify API → Outbox → Redis Streams → PostgreSQL / Elasticsearch</div>
         <p class="project-description">
           Multi-vendor grocery delivery marketplace: store onboarding, catalog, checkout, fulfillment, billing, and admin reporting. Fastify/TypeScript modular monolith with a transactional outbox feeding Redis Streams, Elasticsearch search, Stripe payments and subscriptions, and an LLM-powered agent with RAG for search, support, and recommendations.
         </p>
@@ -1473,7 +1539,15 @@ footer {
       <div class="project-card reveal">
         <div class="project-icon">RM</div>
         <h3 class="project-name">Rigoo Marine Platform</h3>
-        <a href="https://rigoomarine.com" target="_blank" class="project-link">rigoomarine.com ↗</a>
+        <div class="project-embed">
+          <iframe src="https://rigoo-marine-frontend.vercel.app/" title="Rigoo Marine — live preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
+        </div>
+        <div class="project-buttons">
+          <a href="https://rigoomarine.com" target="_blank" class="project-btn project-btn-live">Live Site ↗</a>
+          <a href="https://rigoo-marine-frontend.vercel.app/" target="_blank" class="project-btn project-btn-vercel">Vercel ↗</a>
+          <a href="https://github.com/HamaRigo/rigoo-marine" target="_blank" class="project-btn project-btn-gh">GitHub ↗</a>
+        </div>
+        <div class="project-arch">React (Vite/MUI) → Spring Cloud Gateway (Eureka) → 10 Microservices → PostgreSQL</div>
         <p class="project-description">
           Bilingual (Arabic/English, full RTL) marine-services platform for a real Qatar company. 10-service Spring Boot 3.2 / Java 17 backend behind a Spring Cloud Gateway with Eureka, Stripe Checkout with idempotent webhooks, a bilingual React 18 + MUI frontend, and an LLM-powered chatbot with RAG over the service and parts catalog.
         </p>
@@ -1491,6 +1565,7 @@ footer {
         <div class="project-icon">FD</div>
         <h3 class="project-name">Fraud Detection & Real-Time Event Processing</h3>
         <a href="https://github.com/HamaRigo/realtime-fraud-pipeline" target="_blank" class="project-link">github.com/HamaRigo/realtime-fraud-pipeline ↗</a>
+        <div class="project-arch">Transaction Stream → Kafka (partitioned) → Rule Engine + ML Scorer → Prometheus Alerts</div>
         <p class="project-description">
           Partitioned Kafka pipeline with exactly-once semantics for financial transaction processing. Dead-letter queues and replay logic kept it available through upstream failures. Hybrid rule-based + ML-assisted scoring model caught more fraud than the old rule-only system, with Prometheus alerting for fast triage.
         </p>
@@ -1505,6 +1580,7 @@ footer {
       <div class="project-card reveal">
         <div class="project-icon">WP</div>
         <h3 class="project-name">Real-Estate Platform (WordPress)</h3>
+        <div class="project-arch">Visitor → WordPress + 360° Tour Plugin → MySQL</div>
         <p class="project-description">
           Full real-estate platform for property rental and sales — apartments, warehouses, and villas — built end-to-end on WordPress with 360° virtual-tour plugin integration so clients could browse properties remotely before visiting.
         </p>
@@ -1519,6 +1595,7 @@ footer {
         <div class="project-icon">RC</div>
         <h3 class="project-name">Real-Time Chat (University Project)</h3>
         <a href="https://github.com/HamaRigo/PI_forum-chat" target="_blank" class="project-link">github.com/HamaRigo/PI_forum-chat ↗</a>
+        <div class="project-arch">Client → WebSocket Gateway → Redis Pub/Sub → Fan-out to Server Nodes</div>
         <p class="project-description">
           WebSocket chat built into a Java + TypeScript forum/community app, with a Redis pub/sub layer for fan-out across server nodes and automatic client-side reconnection and session recovery.
         </p>
