@@ -81,6 +81,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;backdrop-filter:blur(20px) s
 .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;}
 .nav-toggle span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
 
+/* THEME SWITCH (nav) */
+.nav-links a.theme-toggle{padding:0;}
+.nav-links a.theme-toggle::after{content:none;}
+.nav-links a.theme-toggle:hover{color:inherit;}
+.theme-toggle-track{
+  position:relative;
+  width:50px;height:26px;
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6px;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--border);
+  transition:border-color .3s ease;
+}
+.theme-toggle:hover .theme-toggle-track{border-color:rgba(0,229,255,.35);}
+.ttg-icon{width:12px;height:12px;position:relative;z-index:2;transition:opacity .3s ease;}
+.ttg-sun{color:var(--amber);opacity:.4;}
+.ttg-moon{color:var(--cyan);opacity:1;}
+.theme-toggle:hover .ttg-sun{opacity:1;}
+.theme-toggle:hover .ttg-moon{opacity:.4;}
+.theme-toggle-thumb{
+  position:absolute;top:2px;right:2px;
+  width:20px;height:20px;border-radius:50%;
+  background:linear-gradient(135deg,var(--indigo),var(--pink));
+  box-shadow:0 2px 10px rgba(247,0,192,.45);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.theme-toggle:hover .theme-toggle-thumb{transform:translateX(-24px);}
+
 /* ============================================================
    HERO
 ============================================================ */
@@ -314,7 +343,15 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="index2.html">Resume</a></li>
+    <li>
+      <a href="index2.html" class="theme-toggle" aria-label="Switch to light version" title="Switch to light version">
+        <span class="theme-toggle-track">
+          <svg class="ttg-icon ttg-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="ttg-icon ttg-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </a>
+    </li>
   </ul>
   <div class="nav-toggle" id="nav-toggle" onclick="document.getElementById('nav-links').classList.toggle('open')">
     <span></span><span></span><span></span>
