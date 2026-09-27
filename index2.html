@@ -1519,7 +1519,13 @@ footer {
       <div class="project-card reveal">
         <div class="project-icon">GM</div>
         <h3 class="project-name">Grocery Marketplace</h3>
-        <a href="https://github.com/HamaRigo/Grocery-marketplace" target="_blank" class="project-link">github.com/HamaRigo/Grocery-marketplace ↗</a>
+        <div class="project-embed">
+          <iframe src="https://bakala-shop.vercel.app/" title="Grocery Marketplace — live preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
+        </div>
+        <div class="project-buttons">
+          <a href="https://bakala-shop.vercel.app/" target="_blank" class="project-btn project-btn-live">Live Preview ↗</a>
+          <a href="https://github.com/HamaRigo/Grocery-marketplace" target="_blank" class="project-btn project-btn-gh">GitHub ↗</a>
+        </div>
         <div class="project-arch">Client (React) → Fastify API → Outbox → Redis Streams → PostgreSQL / Elasticsearch</div>
         <p class="project-description">
           Multi-vendor grocery delivery marketplace: store onboarding, catalog, checkout, fulfillment, billing, and admin reporting. Fastify/TypeScript modular monolith with a transactional outbox feeding Redis Streams, Elasticsearch search, Stripe payments and subscriptions, and an LLM-powered agent with RAG for search, support, and recommendations.
@@ -1543,8 +1549,7 @@ footer {
           <iframe src="https://rigoo-marine-frontend.vercel.app/" title="Rigoo Marine — live preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
         </div>
         <div class="project-buttons">
-          <a href="https://rigoomarine.com" target="_blank" class="project-btn project-btn-live">Live Site ↗</a>
-          <a href="https://rigoo-marine-frontend.vercel.app/" target="_blank" class="project-btn project-btn-vercel">Vercel ↗</a>
+          <a href="https://rigoo-marine-frontend.vercel.app/" target="_blank" class="project-btn project-btn-live">Live Preview ↗</a>
           <a href="https://github.com/HamaRigo/rigoo-marine" target="_blank" class="project-btn project-btn-gh">GitHub ↗</a>
         </div>
         <div class="project-arch">React (Vite/MUI) → Spring Cloud Gateway (Eureka) → 10 Microservices → PostgreSQL</div>
