@@ -562,8 +562,14 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
     <div class="proj-card reveal">
       <div class="proj-emoji">🛒</div>
       <div class="proj-name">Grocery Marketplace</div>
-      <a href="https://github.com/HamaRigo/Grocery-marketplace" target="_blank" class="proj-link">github.com/HamaRigo/Grocery-marketplace ↗</a>
       <span class="proj-link" style="color:var(--muted);">Jun 2026 — Present · Independent, parallel to consulting</span>
+      <div class="proj-embed">
+        <iframe src="https://bakala-shop.vercel.app/" title="Grocery Marketplace — live preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      </div>
+      <div class="proj-buttons">
+        <a href="https://bakala-shop.vercel.app/" target="_blank" class="proj-btn proj-btn-live">Live Preview ↗</a>
+        <a href="https://github.com/HamaRigo/Grocery-marketplace" target="_blank" class="proj-btn proj-btn-gh">GitHub ↗</a>
+      </div>
       <div class="proj-arch">Client (React) → Fastify API → Outbox → Redis Streams → PostgreSQL / Elasticsearch</div>
       <ul class="tl-bullets">
         <li>Multi-vendor grocery delivery marketplace: local supermarkets run their own storefront while customers browse nearby stores, order, and track delivery live — covers onboarding, catalog, cart, checkout, fulfillment, billing, and admin reporting end-to-end</li>
