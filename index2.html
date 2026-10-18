@@ -1,962 +1,300 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Bouallagui | Full Stack Engineer & Distributed Systems Architect</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            500: '#10b981',
-                            600: '#059669',
-                            700: '#047857',
-                            900: '#064e3b',
-                            gold: '#d97706',
-                            qatar: '#8a1538'
-                        },
-                        dark: {
-                            bg: '#0a0a09',
-                            card: '#141412',
-                            border: '#262623'
-                        },
-                        light: {
-                            bg: '#f8f6f0',
-                            card: '#ffffff',
-                            border: '#e5e2d9'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Instrument Serif', 'Georgia', 'serif'],
-                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Mohamed Bouallagui — Software Engineer</title>
+<meta name="description" content="Backend & microservices engineer: Kafka, Spring Boot, distributed systems, LLM/RAG. Doha, Qatar."/>
+<meta property="og:title" content="Mohamed Bouallagui — Software Engineer"/>
+<meta property="og:image" content="https://hamarigo.github.io/portfolio/assets/preview.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#fbfaf7;--card:rgba(255,255,255,.72);--ink:#14131a;--mut:#65637a;--line:#e6e3ee;--a:#4f46e5;--b:#ec4899;--c:#f59e0b;--g:linear-gradient(100deg,var(--a),var(--b) 55%,var(--c));--h:'Bricolage Grotesque',sans-serif;--s:'Inter',system-ui,sans-serif;--m:'JetBrains Mono',monospace;--e:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--s);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.w{max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,44px)}
+.gt{background:var(--g);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s linear infinite alternate}
+@keyframes flow{to{background-position:100% 0}}
+.mono{font:500 .72rem var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--g);transform:scaleX(0);transform-origin:0 0;z-index:99}
 
-    <!-- Google Fonts & Devicon icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    
-    <style>
-        /* CSS Variables & Smooth Transitions */
-        :root {
-            --bg-color: #f8f6f0;
-            --text-color: #1c1917;
-            --card-bg: #ffffff;
-            --card-border: #e2dfd5;
-            --accent-glow: rgba(16, 185, 129, 0.15);
-        }
+nav{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font:800 1.2rem var(--h);letter-spacing:-.02em}
+.nl{list-style:none;display:flex;gap:1.9rem;align-items:center}
+.nl a{font-size:.85rem;font-weight:500;color:var(--mut);position:relative;transition:color .2s}
+.nl a:not(.theme-toggle):after{content:'';position:absolute;left:0;bottom:-4px;height:2px;width:100%;background:var(--g);transform:scaleX(0);transform-origin:0 0;transition:transform .35s var(--e)}
+.nl a:hover{color:var(--ink)}.nl a:hover:after{transform:scaleX(1)}
+.theme-toggle-track{position:relative;width:50px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:space-between;padding:0 6px;background:#fff;border:1px solid var(--line);transition:border-color .25s}
+.theme-toggle:hover .theme-toggle-track{border-color:var(--a)}
+.ttg-icon{width:12px;height:12px;position:relative;z-index:2;transition:opacity .25s}
+.ttg-sun{color:var(--c);opacity:1}.ttg-moon{color:var(--mut);opacity:.35}
+.theme-toggle:hover .ttg-sun{opacity:.35}.theme-toggle:hover .ttg-moon{opacity:1}
+.theme-toggle-thumb{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--g);transition:transform .4s var(--e);box-shadow:0 2px 8px rgba(79,70,229,.35)}
+.theme-toggle:hover .theme-toggle-thumb{transform:translateX(24px)}
 
-        .dark {
-            --bg-color: #0a0a09;
-            --text-color: #f3f4f6;
-            --card-bg: #141412;
-            --card-border: #262623;
-            --accent-glow: rgba(16, 185, 129, 0.25);
-        }
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(70px,11vw,130px) 0 70px}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;z-index:-1;animation:fl 14s ease-in-out infinite alternate}
+.b1{width:420px;height:420px;background:var(--a);top:-120px;right:-60px}
+.b2{width:340px;height:340px;background:var(--b);top:120px;left:-120px;animation-delay:-5s}
+.b3{width:280px;height:280px;background:var(--c);bottom:-80px;right:25%;animation-delay:-9s;opacity:.35}
+@keyframes fl{to{transform:translate(50px,-40px) scale(1.15)}}
+#spot{position:absolute;inset:0;z-index:-1;background:radial-gradient(500px circle at var(--x,70%) var(--y,30%),rgba(79,70,229,.12),transparent 60%)}
+.pill{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:.8rem;font-weight:500}
+.pill i{width:8px;height:8px;border-radius:50%;background:#10b981;animation:pu 1.8s infinite}
+@keyframes pu{0%{box-shadow:0 0 0 0 rgba(16,185,129,.6)}100%{box-shadow:0 0 0 9px transparent}}
+h1{font:800 clamp(2.8rem,8.2vw,6.4rem)/1 var(--h);letter-spacing:-.04em;margin:26px 0 20px;max-width:13ch}
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.wd>span{display:inline-block;transform:translateY(110%);animation:up .9s var(--e) forwards;animation-delay:calc(var(--i)*.09s + .2s)}
+@keyframes up{to{transform:none}}
+.role{font:500 clamp(1.1rem,2.4vw,1.5rem) var(--h);min-height:2rem}
+.role b{color:var(--a)}.role u{display:inline-block;width:2px;height:1.1em;background:var(--b);margin-left:3px;vertical-align:-3px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.lead{max-width:58ch;color:var(--mut);font-size:1.08rem;margin-top:14px}
+.cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{padding:14px 26px;border-radius:999px;font-weight:600;font-size:.9rem;transition:all .3s var(--e)}
+.btn.p{background:var(--ink);color:#fff;box-shadow:0 10px 24px -10px rgba(20,19,26,.6)}.btn.p:hover{transform:translateY(-3px);background:var(--a)}
+.btn.s{border:1px solid var(--ink)}.btn.s:hover{transform:translateY(-3px);background:#fff}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+.st{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;backdrop-filter:blur(8px)}
+.st strong{display:block;font:800 2.5rem/1 var(--h);letter-spacing:-.03em;margin-bottom:6px}
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
+/* marquee */
+.mq{border-block:1px solid var(--line);overflow:hidden;padding:16px 0;background:#fff}
+.mq div{display:flex;gap:44px;width:max-content;animation:sc 36s linear infinite}
+.mq span{font:700 1rem var(--h);color:var(--mut);white-space:nowrap}.mq span:after{content:'✦';margin-left:44px;color:var(--b)}
+@keyframes sc{to{transform:translateX(-50%)}}
 
-        .font-serif-title {
-            font-family: 'Instrument Serif', Georgia, serif;
-        }
+/* sections */
+section{padding:96px 0}
+.eye{font:500 .75rem var(--m);letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin-bottom:12px}
+h2{font:800 clamp(2rem,4.6vw,3.3rem)/1.05 var(--h);letter-spacing:-.035em;margin-bottom:44px;max-width:18ch}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--e),transform .9s var(--e);transition-delay:calc(var(--d,0)*.08s)}
+.rv.on{opacity:1;transform:none}
+.sk{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sk>div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .4s var(--e),box-shadow .4s}
+.sk>div:hover{transform:translateY(-6px);box-shadow:0 24px 40px -24px rgba(79,70,229,.45)}
+.sk h3{font:700 1.05rem var(--h);margin-bottom:14px}
+.sk span{display:inline-block;margin:0 6px 7px 0;padding:4px 11px;border-radius:999px;background:#f1effa;font-size:.78rem;font-weight:500;color:#3c3a58;transition:all .25s}
+.sk span:hover{background:var(--a);color:#fff;transform:scale(1.07)}
 
-        /* Glassmorphism styles */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 223, 213, 0.8);
-        }
+/* timeline */
+.tl{position:relative;padding-left:38px}
+.tl:before,.tl i{content:'';position:absolute;left:7px;top:6px;width:2px;bottom:0;background:var(--line)}
+.tl i{background:var(--g);bottom:auto;height:0;transition:height .15s linear}
+.it{position:relative;padding-bottom:40px}
+.it:before{content:'';position:absolute;left:-38px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--line);transition:all .5s var(--e)}
+.it.on:before{border-color:var(--a);background:var(--a);box-shadow:0 0 0 7px rgba(79,70,229,.14)}
+.it h3{font:700 1.4rem/1.25 var(--h);letter-spacing:-.02em}
+.it .co{color:var(--a);font-weight:500;font-size:.9rem;margin:3px 0 10px}
+.it .mono{display:block;margin-bottom:6px}
+.it ul{list-style:none;color:var(--mut);font-size:.95rem}.it li{padding-left:20px;position:relative;margin-top:5px}.it li:before{content:'→';position:absolute;left:0;color:var(--b)}
 
-        .dark .glass-panel {
-            background: rgba(20, 20, 18, 0.75);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(38, 38, 35, 0.8);
-        }
+/* projects */
+.fe{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0;transition:box-shadow .4s;will-change:transform}
+.pc:hover{box-shadow:0 34px 60px -30px rgba(79,70,229,.5)}
+.fr{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.fr .bar{display:flex;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line)}.fr .bar i{width:8px;height:8px;border-radius:50%;background:#e0dcec}
+.em{position:relative;aspect-ratio:16/10;overflow:hidden}.em iframe{width:1280px;height:800px;border:0;transform-origin:0 0}
+.pc h3{font:800 1.6rem/1.1 var(--h);letter-spacing:-.03em;padding:0 6px}
+.pc p{color:var(--mut);font-size:.92rem;padding:0 6px}
+.ar{font:500 .7rem/1.55 var(--m);color:var(--mut);margin:0 6px;padding:8px 12px;border-radius:10px;background:#f4f2fb;overflow-wrap:anywhere}
+.tg{display:flex;flex-wrap:wrap;gap:6px;padding:0 6px}.tg span{font:500 .66rem var(--m);padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+.lk{display:flex;gap:10px;padding:0 6px 6px}
+.lk a{font-size:.8rem;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid var(--ink);transition:all .25s}.lk a:first-child{background:var(--ink);color:#fff}.lk a:hover{background:var(--a);border-color:var(--a);color:#fff;transform:translateY(-2px)}
 
-        /* Hide scrollbars for drag containers */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+.bg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.bg>div{padding:26px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+.bg h3{font:700 .75rem var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:12px}
+.bg p{color:var(--mut);font-size:.92rem;margin-bottom:8px}.bg b{display:block;color:var(--ink);font-weight:600}
 
-        /* Continuous Skill Marquee Animation */
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            display: flex;
-            width: 200%;
-            animation: marquee 28s linear infinite;
-        }
-        .animate-marquee:hover {
-            animation-play-state: paused;
-        }
+.ct{text-align:center;padding:110px 0}
+.ct h2{margin-inline:auto}
+.mail{font:800 clamp(1.5rem,4.6vw,3.6rem)/1.1 var(--h);letter-spacing:-.03em;overflow-wrap:anywhere;display:inline-block;transition:transform .4s var(--e)}.mail:hover{transform:scale(1.03)}
+.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-top:30px;color:var(--mut);font-size:.92rem}.meta a:hover{color:var(--a)}
+footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--mut);font-size:.82rem}
 
-        /* Pulse glow animation */
-        @keyframes pulse-slow {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.03); }
-        }
-        .pulse-glow {
-            animation: pulse-slow 6s ease-in-out infinite;
-        }
-    </style>
+
+.ic{width:15px;height:15px;object-fit:contain;flex:none}
+.sk span,.tg span{display:inline-flex;align-items:center;gap:6px}
+.mq span{display:inline-flex;align-items:center}.mq .ic{width:22px;height:22px;margin-right:9px}
+.lg{overflow:hidden;margin-top:34px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.lgi{display:flex;gap:14px;width:max-content;animation:sc 46s linear infinite reverse}.lg:hover .lgi{animation-play-state:paused}
+.lgi div{display:flex;flex-direction:column;align-items:center;gap:9px;min-width:98px;padding:16px 12px;background:var(--card);border:1px solid var(--line);border-radius:16px;font-size:.72rem;font-weight:600;color:var(--mut);transition:transform .3s var(--e)}
+.lgi div:hover{transform:translateY(-5px);color:var(--ink)}.lgi .ic{width:34px;height:34px}
+.sl-t{display:flex;flex-direction:column;gap:26px}
+.sl-t>.pc{display:grid;grid-template-columns:1.25fr 1fr;column-gap:30px;row-gap:12px;align-content:center;padding:22px}
+.sl-t>.pc .fr{grid-row:1/span 6}
+.sl-t>.pc:nth-child(even){grid-template-columns:1fr 1.25fr}.sl-t>.pc:nth-child(even) .fr{grid-column:2}
+
+.hl{list-style:none;padding:0 6px;color:var(--mut);font-size:.86rem}.hl li{padding-left:18px;position:relative;margin-top:3px}.hl li:before{content:'→';position:absolute;left:0;color:var(--b)}
+.ml{border-top:1px solid var(--line)}
+.mi{border-bottom:1px solid var(--line);transition:background .3s}.mi.open,.mi:hover{background:var(--card)}
+.mh{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:240px 1fr auto;gap:8px 28px;align-items:center;padding:22px 10px}
+.mh:focus-visible{outline:2px solid var(--a);outline-offset:-2px}
+.mt{font:700 1.15rem var(--h)}.md{color:var(--mut);font-size:.9rem}
+.mp{font:600 .8rem var(--s);color:var(--a);display:inline-flex;gap:10px;align-items:center}
+.mp b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--a);font-weight:500;transition:transform .45s var(--e),background .3s,color .3s}
+.mi.open .mp b{transform:rotate(45deg);background:var(--a);color:#fff}
+.mb{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--e)}.mi.open .mb{grid-template-rows:1fr}
+.mx{overflow:hidden;min-height:0}
+.mxi{display:grid;grid-template-columns:1.3fr 1fr;gap:20px 36px;padding:2px 10px 28px}
+.mxi .tg,.mxi .lk{padding:0}.mxi .lk{margin-top:14px}
+.mxi small{display:block;font:500 .68rem var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:8px}
+button.btn{font:inherit;font-weight:600;border:1px solid var(--ink);cursor:pointer}
+.fl{background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:24px}
+.fh{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.fn{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:12px;align-items:center}.fn i{font-style:normal;color:var(--mut)}
+.n{padding:18px;border:1px solid var(--line);border-radius:16px;background:#fff;text-align:center;transition:all .4s var(--e)}
+.n b{display:grid;place-items:center;width:30px;height:30px;margin:0 auto 8px;border-radius:9px;background:#f1effa;color:var(--a);font:600 .8rem var(--m)}
+.n h4{font:700 .95rem var(--h)}.n small{color:var(--mut);font:500 .68rem var(--m)}
+.n.on{border-color:var(--a);transform:translateY(-6px);box-shadow:0 18px 30px -18px rgba(79,70,229,.6)}.n.on b{background:var(--a);color:#fff}
+.tm{margin-top:22px;background:#14131a;color:#c9c7dc;border-radius:14px;padding:16px;font:500 .74rem/1.7 var(--m);height:140px;overflow:auto}
+.tm .g{color:#34d399}.tm .y{color:#fbbf24}.tm .b{color:#818cf8}
+.toast{position:fixed;right:20px;bottom:20px;z-index:99;background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font:500 .8rem var(--m);transform:translateY(80px);opacity:0;transition:all .4s var(--e)}.toast.on{transform:none;opacity:1}
+
+.vb{padding:4px 10px 6px}
+.vm{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+.vm>div{padding:12px 18px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.vm strong{display:block;font:800 1.6rem/1.1 var(--h);letter-spacing:-.03em;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vm span{font:500 .66rem var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.vc{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.vc>div{padding:18px;border-radius:14px;background:#f4f2fb}.vc .va{background:var(--ink)}
+.vc small{display:block;font:500 .68rem var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:6px}.vc .va small{color:#f9a8d4}
+.vc p{font-size:.88rem;color:var(--mut)}.vc .va p{color:#e6e4f2}
+@media(max-width:900px){.vc{grid-template-columns:1fr}.sl-t>.pc,.sl-t>.pc:nth-child(even){grid-template-columns:1fr}.sl-t>.pc .fr,.sl-t>.pc:nth-child(even) .fr{grid-row:auto;grid-column:auto}.mh{grid-template-columns:1fr}.mxi{grid-template-columns:1fr}.fn{grid-template-columns:1fr}.fn i{display:none}.sk,.bg{grid-template-columns:1fr 1fr}.fe{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.nl li:not(:last-child){display:none}}
+@media(max-width:560px){.sk,.bg{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.wd>span{opacity:1;transform:none}}
+</style>
 </head>
-<body class="relative min-h-screen selection:bg-brand-500 selection:text-white antialiased">
-
-    <!-- Toast Notification for Actions -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 px-5 py-3 rounded-xl bg-gray-900 text-white dark:bg-white dark:text-gray-900 shadow-2xl font-mono text-sm border border-brand-500/30">
-        <span id="toast-icon" class="text-brand-500">✓</span>
-        <span id="toast-message">Action completed successfully</span>
-    </div>
-
-    <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 w-full z-40 px-4 lg:px-12 py-4 transition-all duration-300" id="main-header">
-        <nav class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex items-center justify-between shadow-sm">
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-brand-500/10 dark:bg-brand-500/20 text-brand-600 dark:text-brand-500 flex items-center justify-center font-mono font-bold text-lg border border-brand-500/30 group-hover:scale-105 transition-transform">
-                    MB
-                </div>
-                <div>
-                    <span class="font-semibold text-sm lg:text-base tracking-tight block">Mohamed Bouallagui</span>
-                    <span class="text-xs text-gray-500 dark:text-gray-400 font-mono block">Doha, Qatar 🇶🇦</span>
-                </div>
-            </a>
-
-            <!-- Desktop Nav Links -->
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
-                <a href="#about" class="hover:text-brand-500 transition-colors">About</a>
-                <a href="#architecture" class="hover:text-brand-500 transition-colors">Architecture</a>
-                <a href="#experience" class="hover:text-brand-500 transition-colors">Experience</a>
-                <a href="#projects" class="hover:text-brand-500 transition-colors">Projects</a>
-                <a href="#skills" class="hover:text-brand-500 transition-colors">Skills</a>
-                <a href="#contact" class="hover:text-brand-500 transition-colors">Contact</a>
-            </div>
-
-            <div class="flex items-center gap-3">
-                <!-- Theme Switcher -->
-                <button id="theme-toggle" class="p-2.5 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all" title="Toggle Light/Dark Theme">
-                    <svg id="sun-icon" class="w-4 h-4 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z"/></svg>
-                    <svg id="moon-icon" class="w-4 h-4 block dark:hidden text-gray-700" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
-                </button>
-
-                <a href="mailto:mohamed.bouallagui001@gmail.com" class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-medium text-sm transition-all shadow-lg shadow-brand-500/20 flex items-center gap-2">
-                    <span>Hire Me</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- HERO SECTION WITH INTERACTIVE CANVAS -->
-    <section class="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden" id="about">
-        <!-- Canvas Background -->
-        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-auto z-0 opacity-40 dark:opacity-60"></canvas>
-        
-        <div class="max-w-7xl mx-auto px-4 lg:px-12 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-8 space-y-6">
-                <!-- Status Badge -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-600 dark:text-brand-500 font-mono text-xs">
-                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
-                    <span class="font-medium">Based in Doha, Qatar • Transferable RP Available</span>
-                </div>
-
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif-title tracking-tight leading-[1.05]">
-                    Engineered for <span class="text-brand-500 italic">High Availability</span>, Event-Driven Fintech & Scale.
-                </h1>
-
-                <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl font-light leading-relaxed">
-                    Full Stack Engineer with <span class="font-semibold text-gray-900 dark:text-white">5+ years</span> building resilient microservices, cloud-native infrastructure, and event-driven architectures across fintech and banking in the MENA region. Grounded in a telecom-grade reliability mindset and Qatar Central Bank compliance alignment.
-                </p>
-
-                <!-- Quick Tech Highlights -->
-                <div class="pt-2 flex flex-wrap items-center gap-3 font-mono text-xs text-gray-500 dark:text-gray-400">
-                    <span class="px-2.5 py-1 rounded-md bg-gray-200/60 dark:bg-gray-800/60 border border-gray-300/50 dark:border-gray-700/50">Java Spring Boot</span>
-                    <span class="px-2.5 py-1 rounded-md bg-gray-200/60 dark:bg-gray-800/60 border border-gray-300/50 dark:border-gray-700/50">Node.js / Fastify</span>
-                    <span class="px-2.5 py-1 rounded-md bg-gray-200/60 dark:bg-gray-800/60 border border-gray-300/50 dark:border-gray-700/50">Apache Kafka & Redis</span>
-                    <span class="px-2.5 py-1 rounded-md bg-gray-200/60 dark:bg-gray-800/60 border border-gray-300/50 dark:border-gray-700/50">PostgreSQL / Drizzle</span>
-                    <span class="px-2.5 py-1 rounded-md bg-gray-200/60 dark:bg-gray-800/60 border border-gray-300/50 dark:border-gray-700/50">React 18 & RTL</span>
-                    <span class="px-2.5 py-1 rounded-md bg-gray-200/60 dark:bg-gray-800/60 border border-gray-300/50 dark:border-gray-700/50">PCI-DSS & RAG Pipelines</span>
-                </div>
-
-                <!-- Call to action buttons -->
-                <div class="pt-4 flex flex-wrap items-center gap-4">
-                    <a href="#projects" class="px-6 py-3 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium text-sm transition-transform hover:-translate-y-0.5 shadow-xl flex items-center gap-2">
-                        <span>Explore Live Projects</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </a>
-                    <button onclick="copyToClipboard('mohamed.bouallagui001@gmail.com', 'Email copied to clipboard!')" class="px-6 py-3 rounded-xl glass-panel hover:bg-gray-100 dark:hover:bg-gray-800 font-medium text-sm transition-all flex items-center gap-2 border border-gray-300 dark:border-gray-700">
-                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                        <span>Copy Email</span>
-                    </button>
-                    <a href="https://github.com/HamaRigo" target="_blank" rel="noopener" class="p-3 rounded-xl glass-panel hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition-all border border-gray-300 dark:border-gray-700" title="GitHub Profile">
-                        <i class="devicon-github-original text-xl"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/mohamed-bouallagui-mb" target="_blank" rel="noopener" class="p-3 rounded-xl glass-panel hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition-all border border-gray-300 dark:border-gray-700" title="LinkedIn Profile">
-                        <i class="devicon-linkedin-plain text-xl text-blue-500"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Stats & Quick Card -->
-            <div class="lg:col-span-4 space-y-4">
-                <div class="glass-panel rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-xl space-y-6">
-                    <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-gray-800">
-                        <div class="font-mono text-xs uppercase tracking-wider text-gray-500">System Metrics</div>
-                        <span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4 font-mono">
-                        <div class="p-3 rounded-xl bg-gray-100/50 dark:bg-gray-900/50 border border-gray-200/50 dark:border-gray-800/50">
-                            <div class="text-2xl font-bold text-brand-500">5+</div>
-                            <div class="text-[11px] text-gray-500 mt-1">Years Experience</div>
-                        </div>
-                        <div class="p-3 rounded-xl bg-gray-100/50 dark:bg-gray-900/50 border border-gray-200/50 dark:border-gray-800/50">
-                            <div class="text-2xl font-bold text-brand-500">1,000+</div>
-                            <div class="text-[11px] text-gray-500 mt-1">Req/Sec API Load</div>
-                        </div>
-                        <div class="p-3 rounded-xl bg-gray-100/50 dark:bg-gray-900/50 border border-gray-200/50 dark:border-gray-800/50">
-                            <div class="text-2xl font-bold text-brand-500">15+</div>
-                            <div class="text-[11px] text-gray-500 mt-1">Kafka Microservices</div>
-                        </div>
-                        <div class="p-3 rounded-xl bg-gray-100/50 dark:bg-gray-900/50 border border-gray-200/50 dark:border-gray-800/50">
-                            <div class="text-2xl font-bold text-brand-500">99.9%</div>
-                            <div class="text-[11px] text-gray-500 mt-1">Uptime Mindset</div>
-                        </div>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-brand-500/10 border border-brand-500/20 text-xs leading-relaxed space-y-1">
-                        <div class="font-semibold text-brand-600 dark:text-brand-400 flex items-center gap-1.5">
-                            <span>🇶🇦 Qatar National Vision 2030</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300">
-                            Dedicated to engineering digital transformation, secure payment rails, and enterprise fintech infrastructure in Qatar.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CONTINUOUS SKILLS MARQUEE -->
-    <div id="skills" class="py-6 border-y border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-dark-card/50 overflow-hidden relative">
-        <div class="animate-marquee flex items-center gap-8 whitespace-nowrap font-mono text-sm">
-            <!-- Marquee Items Group 1 -->
-            <span class="flex items-center gap-2"><i class="devicon-java-plain text-amber-600 text-lg"></i> Java 17 / Spring Boot 3</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-apachekafka-original text-lg"></i> Apache Kafka</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-nodejs-plain text-green-500 text-lg"></i> Node.js & Fastify</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-postgresql-plain text-blue-400 text-lg"></i> PostgreSQL & Drizzle</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-redis-plain text-red-500 text-lg"></i> Redis Streams & Caching</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-react-original text-cyan-400 text-lg"></i> React 18 & Arabic RTL</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-docker-plain text-blue-500 text-lg"></i> Docker & K8s</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-amazonwebservices-original text-amber-500 text-lg"></i> AWS Cloud Native</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-typescript-plain text-blue-600 text-lg"></i> TypeScript & Fastify</span>
-            <span class="text-gray-400">•</span>
-
-            <!-- Marquee Items Group 2 (Duplicate for continuous loop) -->
-            <span class="flex items-center gap-2"><i class="devicon-java-plain text-amber-600 text-lg"></i> Java 17 / Spring Boot 3</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-apachekafka-original text-lg"></i> Apache Kafka</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-nodejs-plain text-green-500 text-lg"></i> Node.js & Fastify</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-postgresql-plain text-blue-400 text-lg"></i> PostgreSQL & Drizzle</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-redis-plain text-red-500 text-lg"></i> Redis Streams & Caching</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-react-original text-cyan-400 text-lg"></i> React 18 & Arabic RTL</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-docker-plain text-blue-500 text-lg"></i> Docker & K8s</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-amazonwebservices-original text-amber-500 text-lg"></i> AWS Cloud Native</span>
-            <span class="text-gray-400">•</span>
-            <span class="flex items-center gap-2"><i class="devicon-typescript-plain text-blue-600 text-lg"></i> TypeScript & Fastify</span>
-            <span class="text-gray-400">•</span>
-        </div>
-    </div>
-
-    <!-- INTERACTIVE SYSTEM ARCHITECTURE SIMULATOR -->
-    <section class="py-20 max-w-7xl mx-auto px-4 lg:px-12" id="architecture">
-        <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
-            <span class="font-mono text-xs uppercase tracking-widest text-brand-500 font-semibold">Interactive Flow Simulator</span>
-            <h2 class="text-3xl md:text-5xl font-serif-title">Transactional Outbox & Event Stream Architecture</h2>
-            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base">
-                An interactive visualization of the event-driven pattern used in Mohamed's production projects to guarantee zero data loss during upstream/downstream network partitions.
-            </p>
-        </div>
-
-        <div class="glass-panel rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-800 shadow-2xl relative overflow-hidden">
-            <!-- Controls -->
-            <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-gray-200 dark:border-gray-800">
-                <div class="flex items-center gap-3">
-                    <button id="sim-trigger" onclick="runEventSimulation()" class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-mono text-xs font-semibold transition-all shadow-lg shadow-brand-500/20 flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
-                        <span>Dispatch Order Payload</span>
-                    </button>
-                    <span id="sim-status" class="font-mono text-xs text-gray-500">Status: Ready</span>
-                </div>
-                <div class="flex items-center gap-4 text-xs font-mono text-gray-500">
-                    <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span> API Gateway</span>
-                    <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Outbox Pattern</span>
-                    <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> Redis Stream</span>
-                    <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> RAG / Search</span>
-                </div>
-            </div>
-
-            <!-- Architecture Flow Nodes -->
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 py-8 relative">
-                
-                <!-- Node 1 -->
-                <div id="node-1" class="p-4 rounded-2xl bg-gray-100/80 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-800 transition-all duration-300 relative text-center space-y-2">
-                    <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-500 flex items-center justify-center mx-auto font-mono text-xs font-bold">1</div>
-                    <div class="font-semibold text-sm">Client Request</div>
-                    <div class="font-mono text-[11px] text-gray-500">React / Fastify API</div>
-                    <div class="text-[10px] bg-blue-500/10 text-blue-600 dark:text-blue-400 p-1.5 rounded font-mono">POST /orders/checkout</div>
-                </div>
-
-                <!-- Arrow 1 -->
-                <div class="hidden md:flex items-center justify-center text-gray-400">
-                    <svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </div>
-
-                <!-- Node 2 -->
-                <div id="node-2" class="p-4 rounded-2xl bg-gray-100/80 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-800 transition-all duration-300 relative text-center space-y-2">
-                    <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-500 flex items-center justify-center mx-auto font-mono text-xs font-bold">2</div>
-                    <div class="font-semibold text-sm">Transactional Outbox</div>
-                    <div class="font-mono text-[11px] text-gray-500">PostgreSQL ACID</div>
-                    <div class="text-[10px] bg-amber-500/10 text-amber-600 dark:text-amber-400 p-1.5 rounded font-mono">Atomic DB Transaction</div>
-                </div>
-
-                <!-- Arrow 2 -->
-                <div class="hidden md:flex items-center justify-center text-gray-400">
-                    <svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </div>
-
-                <!-- Node 3 -->
-                <div id="node-3" class="p-4 rounded-2xl bg-gray-100/80 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-800 transition-all duration-300 relative text-center space-y-2">
-                    <div class="w-8 h-8 rounded-lg bg-red-500/20 text-red-500 flex items-center justify-center mx-auto font-mono text-xs font-bold">3</div>
-                    <div class="font-semibold text-sm">Event Stream Bus</div>
-                    <div class="font-mono text-[11px] text-gray-500">Redis / Kafka Topic</div>
-                    <div class="text-[10px] bg-red-500/10 text-red-600 dark:text-red-400 p-1.5 rounded font-mono">Guaranteed Delivery</div>
-                </div>
-
-            </div>
-
-            <!-- Simulation Terminal Log -->
-            <div class="bg-gray-950 rounded-2xl p-4 font-mono text-xs text-gray-300 border border-gray-800 space-y-1.5 h-32 overflow-y-auto" id="sim-log">
-                <div class="text-gray-500">// Terminal log output initialized... Click 'Dispatch Order Payload' to view event lifecycle.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROFESSIONAL EXPERIENCE TIMELINE -->
-    <section class="py-20 max-w-7xl mx-auto px-4 lg:px-12" id="experience">
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span class="font-mono text-xs uppercase tracking-widest text-brand-500 font-semibold">Career History</span>
-            <h2 class="text-3xl md:text-5xl font-serif-title">Professional Experience</h2>
-            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base">
-                A track record spanning enterprise banking, full-stack platform consulting, distributed systems, and telecom infrastructure.
-            </p>
-        </div>
-
-        <div class="relative border-l-2 border-gray-200 dark:border-gray-800 ml-4 md:ml-32 space-y-12">
-            
-            <!-- Experience Item 1 -->
-            <div class="relative pl-6 md:pl-10 group">
-                <!-- Timeline Marker -->
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 border-4 border-white dark:border-dark-bg group-hover:scale-125 transition-transform"></div>
-                
-                <div class="md:absolute md:-left-36 md:top-1 font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap mb-2 md:mb-0">
-                    Aug 2025 — Present
-                </div>
-
-                <div class="glass-panel rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-800 hover:border-brand-500/50 transition-all shadow-md space-y-4">
-                    <div class="flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                            <h3 class="text-xl font-bold">Full Stack Engineering Consultant</h3>
-                            <div class="text-sm text-brand-600 dark:text-brand-500 font-medium">Independent Consultant | Client: Rigoo Marine • Doha, Qatar 🇶🇦</div>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 font-mono text-xs font-semibold">Active Client</span>
-                    </div>
-
-                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 list-disc list-inside leading-relaxed">
-                        <li>Sole engineer engaged to design, build, and operate a live bilingual (Arabic/English, full RTL) marine-services platform for the Qatar market end-to-end.</li>
-                        <li>Instrumented Prometheus metrics and distributed tracing across the platform for rapid detection, applying circuit breaker, retry, and bulkhead resilience patterns.</li>
-                        <li>Advised client and regional fintech contacts on PCI-DSS architecture reviews, aligning security posture with Qatar Central Bank guidelines.</li>
-                    </ul>
-
-                    <div class="pt-2 flex flex-wrap gap-2 font-mono text-xs text-gray-500">
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">Spring Boot 3.2</span>
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">React 18</span>
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">Stripe Integration</span>
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">Docker</span>
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">PCI-DSS</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience Item 2 -->
-            <div class="relative pl-6 md:pl-10 group">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600 border-4 border-white dark:border-dark-bg group-hover:scale-125 transition-transform"></div>
-                
-                <div class="md:absolute md:-left-36 md:top-1 font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap mb-2 md:mb-0">
-                    Sep 2024 — Feb 2025
-                </div>
-
-                <div class="glass-panel rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-800 hover:border-brand-500/50 transition-all shadow-md space-y-4">
-                    <div class="flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                            <h3 class="text-xl font-bold">Full Stack Engineer — End-of-Studies Project (PFE)</h3>
-                            <div class="text-sm text-brand-600 dark:text-brand-500 font-medium">Arab Tunisian Bank (ATB) • Tunis, Tunisia 🇹🇳</div>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 font-mono text-xs">Banking IAM</span>
-                    </div>
-
-                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 list-disc list-inside leading-relaxed">
-                        <li>Delivered a Keycloak-based Identity & Access Management (IAM) platform for 10,000+ enterprise users covering RBAC, SSO, and MFA to audit standards.</li>
-                        <li>Decomposed a core monolith into 15+ microservices communicating over asynchronous Kafka topics using Saga and Outbox event patterns.</li>
-                        <li>Engineered an OCR document-ingestion pipeline achieving 95% classification accuracy, cutting manual review workload by 80%.</li>
-                        <li>Maintained audited PCI-DSS compliance across transaction handling and encrypted persistent storage layers.</li>
-                    </ul>
-
-                    <div class="pt-2 flex flex-wrap gap-2 font-mono text-xs text-gray-500">
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">Keycloak IAM</span>
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">Apache Kafka</span>
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">Spring Boot</span>
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">OCR ML</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience Item 3 -->
-            <div class="relative pl-6 md:pl-10 group">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600 border-4 border-white dark:border-dark-bg group-hover:scale-125 transition-transform"></div>
-                
-                <div class="md:absolute md:-left-36 md:top-1 font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap mb-2 md:mb-0">
-                    Nov 2021 — Feb 2023
-                </div>
-
-                <div class="glass-panel rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-800 hover:border-brand-500/50 transition-all shadow-md space-y-4">
-                    <div class="flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                            <h3 class="text-xl font-bold">Full Stack Developer — Enterprise Platforms</h3>
-                            <div class="text-sm text-brand-600 dark:text-brand-500 font-medium">International Systems Engineering (ISE) • Tunis, Tunisia 🇹🇳</div>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 font-mono text-xs">Enterprise Systems</span>
-                    </div>
-
-                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 list-disc list-inside leading-relaxed">
-                        <li>Built and maintained enterprise platforms (Java Spring Boot, React), taking feature sets from initial specs to production deployments.</li>
-                        <li>Increased REST API throughput past 1,000 req/sec via SQL query optimization, connection pooling, and Redis caching layers.</li>
-                        <li>Rebuilt release pipelines with CI/CD and IaC, cutting deployment cycle times from 48 hours down to 15 minutes.</li>
-                        <li>Designed and shipped an in-house OAuth2 SSO system for 500+ enterprise users with granular service-level revocation.</li>
-                    </ul>
-
-                    <div class="pt-2 flex flex-wrap gap-2 font-mono text-xs text-gray-500">
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">Java Spring Boot</span>
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">React</span>
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">Redis</span>
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">OAuth2 SSO</span>
-                        <span class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">CI/CD</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience Item 4 -->
-            <div class="relative pl-6 md:pl-10 group">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600 border-4 border-white dark:border-dark-bg group-hover:scale-125 transition-transform"></div>
-                
-                <div class="md:absolute md:-left-36 md:top-1 font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap mb-2 md:mb-0">
-                    2018 — 2021
-                </div>
-
-                <div class="glass-panel rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-800 hover:border-brand-500/50 transition-all shadow-md space-y-4">
-                    <div class="flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                            <h3 class="text-xl font-bold">Telecom Infrastructure & Software Support Engineer</h3>
-                            <div class="text-sm text-brand-600 dark:text-brand-500 font-medium">Orange LTE Partners / Monsef Bey Tech • Tunisia 🇹🇳</div>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 font-mono text-xs">Infrastructure Foundation</span>
-                    </div>
-
-                    <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                        Led field teams on LTE/4G deployment across BTS systems (Huawei, Ericsson, Nokia, NEC). Automated enterprise software troubleshooting with Python scripts. That foundational background grounds the uptime-first, high-availability engineering approach applied to current distributed software architecture.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- PROJECT SHOWCASE CAROUSEL -->
-    <section class="py-20 bg-gray-50/50 dark:bg-dark-card/30 border-y border-gray-200 dark:border-gray-800" id="projects">
-        <div class="max-w-7xl mx-auto px-4 lg:px-12">
-            
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-                <div>
-                    <span class="font-mono text-xs uppercase tracking-widest text-brand-500 font-semibold">Featured Work</span>
-                    <h2 class="text-3xl md:text-5xl font-serif-title mt-2">Production Systems & Projects</h2>
-                </div>
-                <div class="flex items-center gap-3">
-                    <button id="scroll-left" class="p-3 rounded-xl glass-panel hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <button id="scroll-right" class="p-3 rounded-xl glass-panel hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Horizontal Carousel Container -->
-            <div id="project-carousel" class="flex gap-8 overflow-x-auto no-scrollbar scroll-smooth pb-8 snap-x snap-mandatory">
-                
-                <!-- Project Card 1: Rigoo Marine -->
-                <div class="min-w-[320px] md:min-w-[500px] snap-start glass-panel rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-800 flex flex-col justify-between shadow-xl">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 font-mono text-xs font-semibold">Live Production • Qatar</span>
-                            <span class="font-mono text-xs text-gray-500">2026</span>
-                        </div>
-
-                        <h3 class="text-2xl font-bold">Rigoo Marine — Bilingual Platform</h3>
-                        
-                        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Full-stack marine services platform for the Qatar market featuring vessel service booking, parts shop, and boat marketplace in Arabic and English with full RTL support.
-                        </p>
-
-                        <div class="p-4 rounded-xl bg-gray-100/70 dark:bg-gray-900/70 border border-gray-200 dark:border-gray-800 space-y-2 font-mono text-xs">
-                            <div class="text-brand-500 font-semibold">Key Highlights:</div>
-                            <ul class="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
-                                <li>12 Spring Boot 3.2 microservices behind Spring Cloud Gateway</li>
-                                <li>Stripe Checkout integration with idempotent webhooks</li>
-                                <li>5 role-based dashboards (Client, Tech, Team Lead, Delivery, Admin)</li>
-                                <li>Scoped RAG chatbot for catalog assistance</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between">
-                        <div class="flex gap-2 font-mono text-[11px] text-gray-500">
-                            <span>Java 17</span> • <span>Spring Boot</span> • <span>React 18</span>
-                        </div>
-                        <a href="https://rigoomarine.com" target="_blank" rel="noopener" class="px-4 py-2 rounded-xl bg-brand-500 text-white font-mono text-xs font-semibold flex items-center gap-1.5 hover:bg-brand-600 transition-colors">
-                            <span>Live Site</span>
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project Card 2: Grocery Marketplace -->
-                <div class="min-w-[320px] md:min-w-[500px] snap-start glass-panel rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-800 flex flex-col justify-between shadow-xl">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 font-mono text-xs font-semibold">Modular Monolith</span>
-                            <span class="font-mono text-xs text-gray-500">Jun 2026 — Present</span>
-                        </div>
-
-                        <h3 class="text-2xl font-bold">Multi-Vendor Grocery Marketplace</h3>
-                        
-                        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                            End-to-end multi-vendor marketplace handling store onboarding, product catalog, checkout, rider dispatch, and vendor subscriptions.
-                        </p>
-
-                        <div class="p-4 rounded-xl bg-gray-100/70 dark:bg-gray-900/70 border border-gray-200 dark:border-gray-800 space-y-2 font-mono text-xs">
-                            <div class="text-blue-500 font-semibold">Key Highlights:</div>
-                            <ul class="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
-                                <li>Fastify + TypeScript API with Drizzle ORM over PostgreSQL</li>
-                                <li>Transactional Outbox pattern feeding Redis Streams</li>
-                                <li>Configurable rider dispatch engine with WebSocket GPS tracking</li>
-                                <li>Elasticsearch RAG search layer foundation</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between">
-                        <div class="flex gap-2 font-mono text-[11px] text-gray-500">
-                            <span>TypeScript</span> • <span>Fastify</span> • <span>Redis Streams</span>
-                        </div>
-                        <a href="https://github.com/HamaRigo/Grocery-marketplace" target="_blank" rel="noopener" class="px-4 py-2 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-mono text-xs font-semibold flex items-center gap-1.5">
-                            <span>GitHub Repo</span>
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project Card 3: Fraud Pipeline -->
-                <div class="min-w-[320px] md:min-w-[500px] snap-start glass-panel rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-800 flex flex-col justify-between shadow-xl">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono text-xs font-semibold">Real-Time Event Processing</span>
-                            <span class="font-mono text-xs text-gray-500">2023 — 2024</span>
-                        </div>
-
-                        <h3 class="text-2xl font-bold">Fraud Detection & Kafka Pipeline</h3>
-                        
-                        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Distributed Kafka pipeline with exactly-once processing semantics designed to analyze financial transactions in real time for fraud detection.
-                        </p>
-
-                        <div class="p-4 rounded-xl bg-gray-100/70 dark:bg-gray-900/70 border border-gray-200 dark:border-gray-800 space-y-2 font-mono text-xs">
-                            <div class="text-amber-500 font-semibold">Key Highlights:</div>
-                            <ul class="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
-                                <li>Partitioned Kafka topics with dead-letter queues & replay logic</li>
-                                <li>Hybrid rule-based engine combined with ML scoring model</li>
-                                <li>Prometheus metrics & alerting for rapid anomaly isolation</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between">
-                        <div class="flex gap-2 font-mono text-[11px] text-gray-500">
-                            <span>Apache Kafka</span> • <span>ML Scoring</span> • <span>Prometheus</span>
-                        </div>
-                        <a href="https://github.com/HamaRigo/realtime-fraud-pipeline" target="_blank" rel="noopener" class="px-4 py-2 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-mono text-xs font-semibold flex items-center gap-1.5">
-                            <span>GitHub Repo</span>
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- EDUCATION & CERTIFICATIONS -->
-    <section class="py-20 max-w-7xl mx-auto px-4 lg:px-12">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
-            <!-- Education -->
-            <div class="space-y-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-500 flex items-center justify-center font-bold">🎓</div>
-                    <h3 class="text-2xl font-serif-title">Academic Degrees</h3>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="glass-panel p-6 rounded-2xl border border-gray-200 dark:border-gray-800 space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="font-bold text-base">Engineering Degree, Computer Engineering</span>
-                            <span class="font-mono text-xs text-gray-500">2025</span>
-                        </div>
-                        <div class="text-sm text-brand-600 dark:text-brand-500">ESPRIT — Tunisia</div>
-                        <p class="text-xs text-gray-500">Completed via night/part-time program while employed full-time in software engineering.</p>
-                    </div>
-
-                    <div class="glass-panel p-6 rounded-2xl border border-gray-200 dark:border-gray-800 space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="font-bold text-base">Bachelor's Degree, Computer Science</span>
-                            <span class="font-mono text-xs text-gray-500">2018</span>
-                        </div>
-                        <div class="text-sm text-brand-600 dark:text-brand-500">FST Sidi Bouzid — Tunisia</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Certifications & Languages -->
-            <div class="space-y-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold">📜</div>
-                    <h3 class="text-2xl font-serif-title">Certifications & Languages</h3>
-                </div>
-
-                <div class="glass-panel p-6 rounded-2xl border border-gray-200 dark:border-gray-800 space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-mono text-xs">
-                        <div class="p-3 rounded-xl bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex items-center gap-2">
-                            <span class="text-amber-500">☁️</span>
-                            <span>AWS Certified Developer</span>
-                        </div>
-                        <div class="p-3 rounded-xl bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex items-center gap-2">
-                            <span class="text-red-500">☕</span>
-                            <span>Oracle Java SE 8</span>
-                        </div>
-                        <div class="p-3 rounded-xl bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex items-center gap-2">
-                            <span class="text-blue-500">⚡</span>
-                            <span>Scrum SFPC</span>
-                        </div>
-                    </div>
-
-                    <div class="pt-4 border-t border-gray-200 dark:border-gray-800 space-y-2">
-                        <div class="font-mono text-xs text-gray-500 uppercase tracking-wider">Trilingual Capabilities</div>
-                        <div class="flex flex-wrap gap-4 text-sm font-medium">
-                            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Arabic (Native)</span>
-                            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-blue-500"></span> English (Professional C1)</span>
-                            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> French (Professional C1)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CONTACT & FOOTER -->
-    <footer class="py-20 border-t border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-dark-card/30" id="contact">
-        <div class="max-w-7xl mx-auto px-4 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-8 space-y-6">
-                <span class="font-mono text-xs uppercase tracking-widest text-brand-500 font-semibold">Get in Touch</span>
-                <h2 class="text-4xl md:text-6xl font-serif-title">Ready to build resilient systems together?</h2>
-                <p class="text-gray-600 dark:text-gray-300 text-base max-w-xl">
-                    Currently based in Doha, Qatar with a transferable residence permit and immediate availability for Full Stack, Backend, and Infrastructure engineering opportunities.
-                </p>
-
-                <div class="pt-4 flex flex-wrap items-center gap-4">
-                    <a href="mailto:mohamed.bouallagui001@gmail.com" class="px-8 py-4 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-medium text-base transition-all shadow-xl shadow-brand-500/25 flex items-center gap-3">
-                        <span>Send Direct Email</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                    </a>
-                    <a href="tel:+97477704703" class="px-6 py-4 rounded-2xl glass-panel font-mono text-sm border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center gap-2">
-                        <span>📞 +974 77704703</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="lg:col-span-4">
-                <div class="glass-panel p-6 rounded-3xl border border-gray-200 dark:border-gray-800 space-y-4 font-mono text-xs text-gray-500">
-                    <div class="flex items-center justify-between pb-3 border-b border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white font-bold">
-                        <span>Mohamed Bouallagui</span>
-                        <span class="text-brand-500">Available</span>
-                    </div>
-                    <div>Location: Doha, Qatar 🇶🇦</div>
-                    <div>Work Auth: Transferable RP</div>
-                    <div>GitHub: github.com/HamaRigo</div>
-                    <div>LinkedIn: linkedin.com/in/mohamed-bouallagui-mb</div>
-                    <div class="pt-4 border-t border-gray-200 dark:border-gray-800 text-[10px] text-gray-400">
-                        © 2026 Mohamed Bouallagui. Built with HTML5, Tailwind CSS & JavaScript.
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </footer>
-
-    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
-    <script>
-        /* 1. Theme Switcher Logic */
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const htmlElement = document.documentElement;
-
-        // Check local storage or preference
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            htmlElement.classList.add('dark');
-        } else {
-            htmlElement.classList.remove('dark');
-        }
-
-        themeToggleBtn.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.theme = 'dark';
-            } else {
-                localStorage.theme = 'light';
-            }
-        });
-
-        /* 2. Toast Notification Function */
-        function copyToClipboard(text, message) {
-            // Using standard clipboard copy command
-            const el = document.createElement('textarea');
-            el.value = text;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-
-            showToast(message || 'Copied to clipboard!');
-        }
-
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.innerText = msg;
-            
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
-
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
-        }
-
-        /* 3. Hero Interactive Canvas Physics */
-        const canvas = document.getElementById('hero-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height;
-        let particles = [];
-        let mouse = { x: null, y: null, radius: 150 };
-
-        function initCanvas() {
-            width = canvas.width = canvas.parentElement.clientWidth;
-            height = canvas.height = canvas.parentElement.clientHeight;
-            particles = [];
-            
-            const numParticles = Math.floor((width * height) / 12000);
-            for (let i = 0; i < numParticles; i++) {
-                particles.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height,
-                    vx: (Math.random() - 0.5) * 0.8,
-                    vy: (Math.random() - 0.5) * 0.8,
-                    radius: Math.random() * 2 + 1
-                });
-            }
-        }
-
-        window.addEventListener('resize', initCanvas);
-        window.addEventListener('load', initCanvas);
-
-        window.addEventListener('mousemove', (e) => {
-            const rect = canvas.getBoundingClientRect();
-            mouse.x = e.clientX - rect.left;
-            mouse.y = e.clientY - rect.top;
-        });
-
-        function animateCanvas() {
-            ctx.clearRect(0, 0, width, height);
-
-            const isDark = htmlElement.classList.contains('dark');
-            const particleColor = isDark ? 'rgba(16, 185, 129, 0.4)' : 'rgba(5, 150, 105, 0.3)';
-            const lineColor = isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.04)';
-
-            for (let i = 0; i < particles.length; i++) {
-                let p = particles[i];
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.x < 0 || p.x > width) p.vx *= -1;
-                if (p.y < 0 || p.y > height) p.vy *= -1;
-
-                // Mouse proximity pull
-                if (mouse.x && mouse.y) {
-                    let dx = mouse.x - p.x;
-                    let dy = mouse.y - p.y;
-                    let dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < mouse.radius) {
-                        p.x += dx * 0.01;
-                        p.y += dy * 0.01;
-                    }
-                }
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = particleColor;
-                ctx.fill();
-
-                // Connect nearby points
-                for (let j = i + 1; j < particles.length; j++) {
-                    let p2 = particles[j];
-                    let dx = p.x - p2.x;
-                    let dy = p.y - p2.y;
-                    let dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 100) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = lineColor;
-                        ctx.lineWidth = 0.8;
-                        ctx.stroke();
-                    }
-                }
-            }
-
-            requestAnimationFrame(animateCanvas);
-        }
-        animateCanvas();
-
-        /* 4. Project Carousel Horizontal Scroll Controls */
-        const carousel = document.getElementById('project-carousel');
-        document.getElementById('scroll-left').addEventListener('click', () => {
-            carousel.scrollBy({ left: -400, behavior: 'smooth' });
-        });
-        document.getElementById('scroll-right').addEventListener('click', () => {
-            carousel.scrollBy({ left: 400, behavior: 'smooth' });
-        });
-
-        /* 5. Interactive Event Stream Simulator Logic */
-        let simRunning = false;
-        function runEventSimulation() {
-            if (simRunning) return;
-            simRunning = true;
-
-            const triggerBtn = document.getElementById('sim-trigger');
-            const statusText = document.getElementById('sim-status');
-            const logBox = document.getElementById('sim-log');
-            const node1 = document.getElementById('node-1');
-            const node2 = document.getElementById('node-2');
-            const node3 = document.getElementById('node-3');
-
-            triggerBtn.disabled = true;
-            triggerBtn.classList.add('opacity-50');
-            statusText.innerText = 'Status: Simulating Payload...';
-
-            function addLog(msg, color = 'text-gray-300') {
-                const div = document.createElement('div');
-                div.className = color;
-                div.innerText = `[${new Date().toISOString().substring(11, 19)}] ${msg}`;
-                logBox.appendChild(div);
-                logBox.scrollTop = logBox.scrollHeight;
-            }
-
-            // Step 1
-            node1.classList.add('border-blue-500', 'shadow-lg', 'shadow-blue-500/20');
-            addLog('POST /orders/checkout received at Fastify Gateway.', 'text-blue-400');
-
-            setTimeout(() => {
-                node1.classList.remove('border-blue-500', 'shadow-lg', 'shadow-blue-500/20');
-                node2.classList.add('border-amber-500', 'shadow-lg', 'shadow-amber-500/20');
-                addLog('Atomic DB Transaction: Order persisted & Outbox record created in PostgreSQL.', 'text-amber-400');
-            }, 1200);
-
-            setTimeout(() => {
-                node2.classList.remove('border-amber-500', 'shadow-lg', 'shadow-amber-500/20');
-                node3.classList.add('border-red-500', 'shadow-lg', 'shadow-red-500/20');
-                addLog('Outbox Poller published event to Redis Stream topic: "order.created".', 'text-red-400');
-            }, 2400);
-
-            setTimeout(() => {
-                node3.classList.remove('border-red-500', 'shadow-lg', 'shadow-red-500/20');
-                addLog('Event consumed by Search Projections & RAG Vector Engine successfully!', 'text-emerald-400');
-                statusText.innerText = 'Status: Complete';
-                triggerBtn.disabled = false;
-                triggerBtn.classList.remove('opacity-50');
-                simRunning = false;
-            }, 3600);
-        }
-    </script>
-
+<body>
+<div id="bar"></div>
+<nav><div class="w"><a href="#top" class="logo">Mohamed<span class="gt"> Bouallagui</span></a>
+<ul class="nl"><li><a href="#skills">Expertise</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#flow">Architecture</a></li><li><a href="#contact">Contact</a></li>
+<li><a href="index.html" class="theme-toggle" aria-label="Switch to dark version" title="Switch to dark version"><span class="theme-toggle-track">
+<svg class="ttg-icon ttg-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+<svg class="ttg-icon ttg-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<span class="theme-toggle-thumb"></span></span></a></li></ul></div></nav>
+
+<header class="hero" id="top"><div id="spot"></div><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i>
+<div class="w">
+<span class="pill"><i></i>Available now · Doha, Qatar</span>
+<h1 data-split>Engineering systems that <span class="gt">scale</span> and last.</h1>
+<div class="role">I build <b id="rt"></b><u></u></div>
+<p class="lead">Full-stack engineer with 5+ years across fintech and banking — event-driven backends, secure identity platforms and production LLM agents with RAG. Transferable residence permit.</p>
+<div class="cta"><a href="#projects" class="btn p">View projects →</a><a href="#contact" class="btn s">Get in touch</a></div>
+<div class="stats">
+<div class="st rv" style="--d:0"><strong data-n="5" data-s="+">0</strong><span class="mono">Years</span></div>
+<div class="st rv" style="--d:1"><strong data-n="15" data-s="+">0</strong><span class="mono">Microservices</span></div>
+<div class="st rv" style="--d:2"><strong data-n="1000" data-s="/s">0</strong><span class="mono">API req/sec</span></div>
+<div class="st rv" style="--d:3"><strong data-n="40" data-s="%">0</strong><span class="mono">Faster loads</span></div>
+</div></div></header>
+
+<div class="mq"><div><span>Spring Boot</span><span>Kafka</span><span>Redis Streams</span><span>Kubernetes</span><span>Keycloak</span><span>PostgreSQL</span><span>Elasticsearch</span><span>React</span><span>LLM / RAG</span><span>Docker</span><span>Spring Boot</span><span>Kafka</span><span>Redis Streams</span><span>Kubernetes</span><span>Keycloak</span><span>PostgreSQL</span><span>Elasticsearch</span><span>React</span><span>LLM / RAG</span><span>Docker</span></div></div>
+
+<section id="skills"><div class="w"><div class="eye rv">01 — Expertise</div><h2 class="rv">Backend depth, full-stack reach.</h2>
+<div class="sk">
+<div class="rv" style="--d:0"><h3>Backend</h3><span>Java</span><span>Spring Boot</span><span>Spring Cloud</span><span>Node.js</span><span>Fastify</span><span>TypeScript</span><span>DDD</span></div>
+<div class="rv" style="--d:1"><h3>Data &amp; events</h3><span>Kafka</span><span>Redis Streams</span><span>Outbox</span><span>Saga</span><span>PostgreSQL</span><span>MongoDB</span><span>Elasticsearch</span></div>
+<div class="rv" style="--d:2"><h3>Cloud &amp; security</h3><span>Docker</span><span>Kubernetes</span><span>AWS</span><span>CI/CD</span><span>Keycloak</span><span>OAuth2</span><span>PCI-DSS</span><span>Prometheus</span></div>
+<div class="rv" style="--d:3"><h3>AI &amp; frontend</h3><span>LLM / RAG</span><span>AI agents</span><span>React</span><span>Vite</span><span>Stripe</span><span>Arabic RTL</span><span>WordPress</span></div>
+</div><div class="lg"><div class="lgi" id="lgi"></div></div></div></section>
+
+<section id="experience" style="background:#fff;border-block:1px solid var(--line)"><div class="w"><div class="eye rv">02 — Experience</div><h2 class="rv">Where I've done the work.</h2>
+<div class="tl" id="tl"><i></i>
+<div class="it"><span class="mono">Aug 2025 — Now</span><h3>Full Stack Engineering Consultant</h3><div class="co">Independent · Fintech &amp; enterprise · Doha</div><ul><li>Sole engineer on Rigoo Marine, a live bilingual platform for Qatar — architecture to deployment.</li><li>Back-pressure, circuit breakers, bulkheads; Redis + CDN caching; Prometheus and tracing.</li><li>PCI-DSS architecture reviews aligned with Qatar Central Bank requirements.</li></ul></div>
+<div class="it"><span class="mono">Sep 2024 — Feb 2025</span><h3>Full Stack Engineer · PFE</h3><div class="co">Arab Tunisian Bank (ATB)</div><ul><li>Keycloak IAM for 10,000+ users — RBAC, SSO, MFA — built to banking audit standards, with audited PCI-DSS compliance.</li><li>Monolith split into 15+ Kafka-connected microservices with Saga and outbox patterns.</li><li>OCR pipeline: 95% classification accuracy, 80% less manual review.</li></ul></div>
+<div class="it"><span class="mono">Nov 2021 — Feb 2023</span><h3>Full Stack Developer</h3><div class="co">International Systems Engineering · Tunis</div><ul><li>API throughput past 1,000 req/sec via query tuning, pooling and Redis.</li><li>CI/CD and IaC cut deployments from 48 hours to 15 minutes.</li><li>In-house OAuth2 SSO for 500+ users; WordPress real-estate platform with 360° tours.</li></ul></div>
+<div class="it"><span class="mono">2018 — 2021</span><h3>Telecom &amp; Software Support</h3><div class="co">Orange LTE · Alliance et Performance · Monsef Bey</div><ul><li>Led LTE/4G deployment teams across BTS systems (Huawei, Ericsson, Nokia, NEC), then IoT integration and incident support with Python automation under SLA.</li></ul></div>
+</div></div></section>
+
+<section id="projects"><div class="w"><div class="eye rv">03 — Projects</div><h2 class="rv">Selected work, live.</h2>
+<div class="mono" style="margin:-20px 0 18px">Featured</div>
+<div class="sl"><div class="sl-t" id="slt">
+<article class="pc rv"><div class="fr"><div class="bar"><i></i><i></i><i></i></div><div class="em"><iframe src="https://bakala-shop.vercel.app/" title="Grocery Marketplace — live preview" loading="lazy" referrerpolicy="no-referrer"></iframe></div></div>
+<h3>Grocery Marketplace</h3><p>Multi-vendor delivery marketplace with a transactional outbox, Stripe subscriptions, Elasticsearch search and an LLM agent with RAG.</p>
+<ul class="hl"><li>Rider dispatch engine with live WebSocket GPS tracking</li><li>Elasticsearch geo &amp; full-text search kept in sync via the event stream</li><li>Stripe payments plus per-store vendor subscriptions</li></ul>
+<div class="ar">React → Fastify API → Outbox → Redis Streams → PostgreSQL / Elasticsearch</div>
+<div class="tg"><span>Fastify</span><span>TypeScript</span><span>Drizzle</span><span>Stripe</span><span>LLM/RAG</span></div>
+<div class="lk"><a href="https://bakala-shop.vercel.app/" target="_blank">Live preview ↗</a><a href="https://github.com/HamaRigo/Grocery-marketplace" target="_blank">GitHub</a></div></article>
+<article class="pc rv" style="--d:1"><div class="fr"><div class="bar"><i></i><i></i><i></i></div><div class="em"><iframe src="https://rigoo-marine-frontend.vercel.app/" title="Rigoo Marine — live preview" loading="lazy" referrerpolicy="no-referrer"></iframe></div></div>
+<h3>Rigoo Marine Platform</h3><p>Bilingual Arabic/English (full RTL) platform for a real Qatar company: 10-service Spring Boot backend, Stripe Checkout and a RAG support chatbot.</p>
+<ul class="hl"><li>Five role-based dashboards: client, technician, team lead, delivery, admin</li><li>Stripe Checkout with idempotent webhooks, quotations and PDF invoices</li><li>RAG chatbot scoped to the service and parts catalog</li></ul>
+<div class="ar">React (Vite/MUI) → Spring Cloud Gateway (Eureka) → 10 microservices → PostgreSQL</div>
+<div class="tg"><span>Spring Boot</span><span>Java 17</span><span>React</span><span>Stripe</span><span>LLM/RAG</span></div>
+<div class="lk"><a href="https://rigoo-marine-frontend.vercel.app/" target="_blank">Live preview ↗</a><a href="https://github.com/HamaRigo/rigoo-marine" target="_blank">GitHub</a></div></article>
+</div></div>
+<div class="mono" style="margin:40px 0 14px">More work</div>
+<div class="ml">
+<div class="mi rv" style="--d:0"><button class="mh" aria-expanded="false"><span class="mt">Banking IAM Platform</span><span class="md">Keycloak identity platform for 10,000+ users at Arab Tunisian Bank.</span><span class="mp">Details <b>+</b></span></button><div class="mb"><div class="mx"><div class="vb"><div class="vm"><div><strong>10,000+</strong><span>Users covered</span></div><div><strong>15+</strong><span>Microservices secured</span></div><div><strong>RBAC·SSO·MFA</strong><span>Access controls</span></div></div><div class="vc"><div><small>Challenge</small><p>A bank splitting a monolith into services needed one identity layer that auditors would accept.</p></div><div><small>Approach</small><p>Keycloak with role-based access, single sign-on and multi-factor auth, wired into 15+ Kafka-connected services, with PCI-DSS controls on transactions, storage and access.</p></div><div class="va"><small>Value delivered</small><p>Staff sign in once and get exactly the access their role allows. Every access decision is auditable, built to satisfy banking audit requirements.</p></div></div></div><div class="mxi"><div><small>Highlights</small><ul class="hl" style="padding:0"><li>RBAC, SSO and MFA built to banking audit and compliance requirements</li><li>Auth flows across 15+ Kafka-connected microservices</li><li>PCI-DSS compliance across transactions, storage and access control</li></ul></div><div><small>Stack</small><div class="tg"><span>Keycloak</span><span>Kafka</span><span>Spring Boot</span><span>OAuth2</span></div></div></div></div></div></div>
+<div class="mi rv" style="--d:1"><button class="mh" aria-expanded="false"><span class="mt">OCR Document Pipeline</span><span class="md">Automated document ingestion that cut manual review by 80%.</span><span class="mp">Details <b>+</b></span></button><div class="mb"><div class="mx"><div class="vb"><div class="vm"><div><strong>95%</strong><span>Classification accuracy</span></div><div><strong>−80%</strong><span>Manual review workload</span></div></div><div class="vc"><div><small>Challenge</small><p>Incoming bank documents were classified and checked by hand, a slow and repetitive review queue.</p></div><div><small>Approach</small><p>An OCR ingestion pipeline that reads each document and classifies it automatically, routing only uncertain cases to people.</p></div><div class="va"><small>Value delivered</small><p>95% classification accuracy and 80% less manual review, so staff spend their time on exceptions instead of every document.</p></div></div></div><div class="mxi"><div><small>Highlights</small><ul class="hl" style="padding:0"><li>Automated ingestion and classification of incoming documents</li><li>Built during the ATB end-of-studies engineering project</li><li>Complements the IAM and Kafka microservices work</li></ul></div><div><small>Stack</small><div class="tg"><span>OCR</span><span>ML</span></div></div></div></div></div></div>
+<div class="mi rv" style="--d:1"><button class="mh" aria-expanded="false"><span class="mt">Fraud Detection Pipeline</span><span class="md">Exactly-once Kafka pipeline with hybrid rules + ML scoring.</span><span class="mp">Details <b>+</b></span></button><div class="mb"><div class="mx"><div class="vb"><div class="vm"><div><strong>Exactly-once</strong><span>Processing semantics</span></div><div><strong>More fraud caught</strong><span>vs. rules alone</span></div><div><strong>No added</strong><span>false positives</span></div></div><div class="vc"><div><small>Challenge</small><p>Rule-only checks missed fraud, and a stalled upstream system could stop transaction processing.</p></div><div><small>Approach</small><p>Partitioned Kafka with consumer groups, dead-letter queues and replay, plus rules combined with an ML-assisted score and Prometheus alerting.</p></div><div class="va"><small>Value delivered</small><p>More fraud caught without extra false positives, no lost transactions during upstream failures, and anomalies triaged fast from alerts instead of manual offset digging.</p></div></div></div><div class="mxi"><div><small>Highlights</small><ul class="hl" style="padding:0"><li>Partitioned topics with consumer groups, dead-letter queues and replay</li><li>Deterministic rules combined with an ML-assisted scoring model</li><li>Prometheus alerting and structured logging for fast triage</li></ul></div><div><small>Stack</small><div class="tg"><span>Kafka</span><span>Java</span><span>Prometheus</span></div><div class="lk"><a href="https://github.com/HamaRigo/realtime-fraud-pipeline" target="_blank">GitHub ↗</a></div></div></div></div></div></div>
+<div class="mi rv" style="--d:2"><button class="mh" aria-expanded="false"><span class="mt">Real-Estate Platform</span><span class="md">WordPress rental &amp; sales site with 360° virtual tours.</span><span class="mp">Details <b>+</b></span></button><div class="mb"><div class="mx"><div class="vb"><div class="vm"><div><strong>360°</strong><span>Virtual tours</span></div><div><strong>3</strong><span>Property types</span></div><div><strong>Rent + Sale</strong><span>One platform</span></div></div><div class="vc"><div><small>Challenge</small><p>Clients had to travel to every property just to judge it.</p></div><div><small>Approach</small><p>A custom WordPress build for apartments, warehouses and villas, with 360° virtual-tour plugins integrated into each listing.</p></div><div class="va"><small>Value delivered</small><p>Clients can shortlist properties remotely before visiting, and agents run rentals and sales from a single site.</p></div></div></div><div class="mxi"><div><small>Highlights</small><ul class="hl" style="padding:0"><li>Apartments, warehouses and villas — rentals and sales end to end</li><li>360° virtual-tour plugin integration for remote browsing</li><li>Built during my time at ISE</li></ul></div><div><small>Stack</small><div class="tg"><span>WordPress</span></div></div></div></div></div></div>
+<div class="mi rv" style="--d:3"><button class="mh" aria-expanded="false"><span class="mt">Real-Time Chat</span><span class="md">WebSockets with Redis pub/sub fan-out and session recovery.</span><span class="mp">Details <b>+</b></span></button><div class="mb"><div class="mx"><div class="vb"><div class="vm"><div><strong>Multi-node</strong><span>Horizontal fan-out</span></div><div><strong>0</strong><span>Page reloads to recover</span></div><div><strong>Auto</strong><span>Session recovery</span></div></div><div class="vc"><div><small>Challenge</small><p>Single-server WebSocket chat can't scale out, and users lose their session on every network drop.</p></div><div><small>Approach</small><p>A Redis pub/sub layer fans messages out across server nodes, with client-side reconnection and session recovery built in.</p></div><div class="va"><small>Value delivered</small><p>Chat scales across nodes and heals itself after a drop — no reload, no lost messages.</p></div></div></div><div class="mxi"><div><small>Highlights</small><ul class="hl" style="padding:0"><li>Chat built into a Java + TypeScript forum/community app</li><li>Redis pub/sub fans messages out across server nodes</li><li>Automatic reconnection and session recovery after network drops</li></ul></div><div><small>Stack</small><div class="tg"><span>Java</span><span>TypeScript</span><span>Redis</span></div><div class="lk"><a href="https://github.com/HamaRigo/PI_forum-chat" target="_blank">GitHub ↗</a></div></div></div></div></div></div>
+</div></div></section>
+
+<section id="flow" style="background:#fff;border-block:1px solid var(--line)"><div class="w"><div class="eye rv">04 — Architecture</div><h2 class="rv">Events that never get lost.</h2>
+<div class="fl rv"><div class="fh"><button class="btn p" id="run">▶ Dispatch an order</button><span class="mono" id="st">Status: ready</span></div>
+<div class="fn"><div class="n" id="n1"><b>1</b><h4>Client request</h4><small>React → Fastify API</small></div><i>→</i><div class="n" id="n2"><b>2</b><h4>Transactional outbox</h4><small>PostgreSQL ACID</small></div><i>→</i><div class="n" id="n3"><b>3</b><h4>Event bus</h4><small>Redis Streams / Kafka</small></div><i>→</i><div class="n" id="n4"><b>4</b><h4>Consumers</h4><small>Search · RAG</small></div></div>
+<div class="tm" id="tlog"><div>// press "Dispatch an order" to watch the event lifecycle</div></div></div></div></section>
+
+<section id="education" style="padding-top:0"><div class="w"><div class="bg">
+<div class="rv"><h3>Education</h3><p><b>Engineering Degree, Computer Eng.</b>ESPRIT · 2025 · night program while working full-time</p><p><b>Bachelor, Computer Science</b>FST Sidi Bouzid · 2018</p></div>
+<div class="rv" style="--d:1"><h3>Certifications</h3><p><b>AWS Certified Developer</b>Associate</p><p><b>Oracle Certified Associate</b>Java SE 8</p><p><b>Scrum Foundation</b>Professional</p></div>
+<div class="rv" style="--d:2"><h3>Languages</h3><p><b>Arabic</b>Native</p><p><b>English</b>Professional (C1)</p><p><b>French</b>Professional (C1)</p></div>
+</div></div></section>
+
+<section class="ct" id="contact"><div class="w"><div class="eye rv">05 — Contact</div><h2 class="rv">Let's build something reliable.</h2>
+<a class="mail gt rv" href="mailto:mohamed.bouallagui001@gmail.com">mohamed.bouallagui001@gmail.com</a>
+<div class="meta rv"><span>+974 77 704 703</span><span>Doha · Transferable permit</span><a href="https://linkedin.com/in/mohamed-bouallagui-mb" target="_blank">LinkedIn ↗</a><a href="https://github.com/HamaRigo" target="_blank">GitHub ↗</a></div><div class="cta rv" style="justify-content:center"><button class="btn s" id="cp">Copy email</button><a class="btn p" href="tel:+97477704703">Call +974 77 704 703</a></div><p class="mono rv" style="margin-top:28px">Supporting Qatar National Vision 2030 — fintech &amp; digital infrastructure</p></div></section>
+<div class="toast" id="toast">Email copied ✓</div>
+<footer>© 2026 Mohamed Bouallagui · Software Engineer · Doha, Qatar</footer>
+
+<script>
+const $=(s,c=document)=>[...c.querySelectorAll(s)];
+// split headline into animated words
+$('[data-split]').forEach(h=>{let i=0;const walk=n=>[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(t=>{if(!t.trim()){f.append(t);return}const w=document.createElement('span');w.className='wd';w.innerHTML='<span style="--i:'+i++ +'">'+t+'</span>';f.append(w)});c.replaceWith(f)}else walk(c)});walk(h)});
+// reveal + counters + timeline dots
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;t.classList.add('on');io.unobserve(t);
+ $('[data-n]',t).concat(t.dataset.n?[t]:[]).forEach(el=>{const n=+el.dataset.n,s=el.dataset.s||'',st=performance.now();(function f(now){const p=Math.min((now-st)/1400,1),v=Math.round(n*(1-Math.pow(1-p,3)));el.textContent=v+s;if(p<1)requestAnimationFrame(f)})(st)})}),{threshold:.15});
+$('.rv,.it').forEach(el=>io.observe(el));
+// role typer
+const R=['distributed systems','event-driven microservices','secure identity platforms','LLM agents with RAG'],rt=document.getElementById('rt');let ri=0,ci=0,del=0;
+(function ty(){const w=R[ri];ci+=del?-1:1;rt.textContent=w.slice(0,ci);let d=del?35:70;if(!del&&ci===w.length){del=1;d=1500}else if(del&&ci===0){del=0;ri=(ri+1)%R.length;d=300}setTimeout(ty,d)})();
+// scroll: progress bar + timeline line
+const bar=document.getElementById('bar'),tl=document.getElementById('tl'),line=tl.querySelector('i');
+function sc(){const h=document.documentElement;bar.style.transform='scaleX('+h.scrollTop/(h.scrollHeight-h.clientHeight)+')';const r=tl.getBoundingClientRect();line.style.height=Math.max(0,Math.min(r.height,innerHeight*.6-r.top))+'px'}
+addEventListener('scroll',sc,{passive:true});sc();
+// hero spotlight
+const hero=document.querySelector('.hero'),sp=document.getElementById('spot');
+hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();sp.style.setProperty('--x',e.clientX-r.left+'px');sp.style.setProperty('--y',e.clientY-r.top+'px')});
+
+// technology icons
+const D='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/',M={'java':'java','java 17':'java','spring boot':'spring','spring cloud':'spring','node.js':'nodejs','fastify':'fastify','typescript':'typescript','kafka':'apachekafka','redis':'redis','redis streams':'redis','postgresql':'postgresql','mongodb':'mongodb','elasticsearch':'elasticsearch','docker':'docker','kubernetes':'kubernetes','aws':'amazonwebservices','keycloak':'keycloak','prometheus':'prometheus','react':'react','vite':'vitejs','wordpress':'wordpress','stripe':'@stripe','drizzle':'@drizzle/111'};
+function ic(l){const v=M[l.trim().toLowerCase()];if(!v)return;const i=document.createElement('img');i.className='ic';i.alt='';i.loading='lazy';if(v[0]==='@'){i.src='https://cdn.simpleicons.org/'+v.slice(1);i.onerror=()=>i.remove()}else{const o=['original','plain','original-wordmark','plain-wordmark'];let n=0;const set=()=>i.src=D+v+'/'+v+'-'+o[n]+'.svg';i.onerror=()=>++n<o.length?set():i.remove();set()}return i}
+const LG=['Java','Spring Boot','Node.js','TypeScript','Kafka','Redis','PostgreSQL','MongoDB','Elasticsearch','Docker','Kubernetes','AWS','React','Vite','Stripe','Prometheus','Keycloak','WordPress'];
+const lgi=document.getElementById('lgi');LG.concat(LG).forEach(n=>{const d=document.createElement('div'),i=ic(n);if(i)d.append(i);d.append(n);lgi.append(d)});
+$('.sk span,.mq span,.tg span').forEach(e=>{const i=ic(e.textContent);if(i)e.prepend(i)});
+
+// more-work accordion
+$('.mh').forEach(b=>b.addEventListener('click',()=>{const i=b.parentElement,o=i.classList.toggle('open');b.setAttribute('aria-expanded',o)}));
+// event-flow simulator
+const tlog=document.getElementById('tlog'),stt=document.getElementById('st');let busy=0;
+function lg(m,c){const d=document.createElement('div');d.className=c;d.textContent='['+new Date().toTimeString().slice(0,8)+'] '+m;tlog.append(d);tlog.scrollTop=tlog.scrollHeight}
+document.getElementById('run').onclick=()=>{if(busy)return;busy=1;tlog.innerHTML='';stt.textContent='Status: running…';
+ const S=[[1,'POST /orders/checkout received at Fastify API','b'],[2,'Atomic transaction: order + outbox row committed to PostgreSQL','y'],[3,'Outbox poller published "order.created" to the Redis Stream','b'],[4,'Search projection and RAG index updated from the stream ✓','g']],on=k=>[1,2,3,4].forEach(n=>document.getElementById('n'+n).classList.toggle('on',n===k));
+ S.forEach((x,i)=>setTimeout(()=>{on(x[0]);lg(x[1],x[2])},i*1100));setTimeout(()=>{on(0);stt.textContent='Status: complete ✓';busy=0},S.length*1100+300)};
+// copy email
+document.getElementById('cp').onclick=()=>{const t=document.getElementById('toast');(navigator.clipboard?navigator.clipboard.writeText('mohamed.bouallagui001@gmail.com'):Promise.reject()).catch(()=>{}).finally(()=>{t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2200)})};
+// 3D tilt on project cards
+$('.tilt').forEach(c=>{c.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transition='box-shadow .4s';c.style.transform='perspective(1000px) rotateY('+x*6+'deg) rotateX('+-y*6+'deg) translateY(-4px)'});c.addEventListener('pointerleave',()=>{c.style.transition='transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .4s';c.style.transform=''})});
+// scale live previews to card width
+$('.em').forEach(b=>{const f=b.querySelector('iframe'),fit=()=>f.style.transform='scale('+b.clientWidth/1280+')';fit();new ResizeObserver(fit).observe(b)});
+</script>
 </body>
 </html>
