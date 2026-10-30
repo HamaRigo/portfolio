@@ -8,9 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
 <style>
-/* ============================================================
-   CSS VARIABLES & RESET
-============================================================ */
 :root {
   --indigo: #3d2de8;
   --pink: #f700c0;
@@ -34,26 +31,13 @@ html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--indigo) v
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;cursor:none;line-height:1.6;}
 a{color:inherit;text-decoration:none;}
 img{max-width:100%;}
-
-/* ============================================================
-   NOISE TEXTURE OVERLAY
-============================================================ */
 body::before{
   content:'';position:fixed;inset:0;z-index:1;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events:none;opacity:.5;
 }
-
-/* ============================================================
-   CUSTOM CURSOR
-============================================================ */
 #cursor-dot{position:fixed;width:8px;height:8px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,background .3s;box-shadow:0 0 10px var(--cyan),0 0 20px var(--cyan);}
 #cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(0,229,255,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .18s cubic-bezier(.2,.8,.2,1),width .3s,height .3s,border-color .3s;}
-body:hover #cursor-ring{}
-
-/* ============================================================
-   LOADING SCREEN
-============================================================ */
 #loader{position:fixed;inset:0;z-index:9997;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .7s ease, visibility .7s ease;}
 #loader.hide{opacity:0;visibility:hidden;}
 .loader-initials{font-family:var(--font-head);font-size:5rem;font-weight:800;background:linear-gradient(135deg,var(--indigo),var(--pink),var(--cyan),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:300%;animation:shimmer 2s linear infinite;}
@@ -61,15 +45,7 @@ body:hover #cursor-ring{}
 .loader-bar{height:100%;width:0;background:linear-gradient(90deg,var(--indigo),var(--pink),var(--cyan));border-radius:2px;animation:loaderFill 2s ease forwards;}
 .loader-text{font-family:var(--font-body);font-size:.85rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;}
 @keyframes loaderFill{to{width:100%;}}
-
-/* ============================================================
-   PARTICLE CANVAS
-============================================================ */
 #particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
-
-/* ============================================================
-   NAVBAR
-============================================================ */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);background:rgba(8,8,18,.7);border-bottom:1px solid var(--border);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;transform:translateY(-100%);animation:navSlide .7s .5s cubic-bezier(.2,.8,.2,1) forwards;}
 @keyframes navSlide{to{transform:translateY(0);}}
 .nav-logo{font-family:var(--font-head);font-size:1.1rem;font-weight:700;background:linear-gradient(90deg,var(--cyan),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
@@ -80,39 +56,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;backdrop-filter:blur(20px) s
 .nav-links a:hover::after{width:100%;}
 .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;}
 .nav-toggle span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
-
-/* THEME SWITCH (nav) */
 .nav-links a.theme-toggle{padding:0;}
 .nav-links a.theme-toggle::after{content:none;}
 .nav-links a.theme-toggle:hover{color:inherit;}
-.theme-toggle-track{
-  position:relative;
-  width:50px;height:26px;
-  border-radius:999px;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 6px;
-  background:rgba(255,255,255,.05);
-  border:1px solid var(--border);
-  transition:border-color .3s ease;
-}
+.theme-toggle-track{position:relative;width:50px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:space-between;padding:0 6px;background:rgba(255,255,255,.05);border:1px solid var(--border);transition:border-color .3s ease;}
 .theme-toggle:hover .theme-toggle-track{border-color:rgba(0,229,255,.35);}
 .ttg-icon{width:12px;height:12px;position:relative;z-index:2;transition:opacity .3s ease;}
 .ttg-sun{color:var(--amber);opacity:.4;}
 .ttg-moon{color:var(--cyan);opacity:1;}
 .theme-toggle:hover .ttg-sun{opacity:1;}
 .theme-toggle:hover .ttg-moon{opacity:.4;}
-.theme-toggle-thumb{
-  position:absolute;top:2px;right:2px;
-  width:20px;height:20px;border-radius:50%;
-  background:linear-gradient(135deg,var(--indigo),var(--pink));
-  box-shadow:0 2px 10px rgba(247,0,192,.45);
-  transition:transform .4s cubic-bezier(.2,.8,.2,1);
-}
+.theme-toggle-thumb{position:absolute;top:2px;right:2px;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--indigo),var(--pink));box-shadow:0 2px 10px rgba(247,0,192,.45);transition:transform .4s cubic-bezier(.2,.8,.2,1);}
 .theme-toggle:hover .theme-toggle-thumb{transform:translateX(-24px);}
-
-/* ============================================================
-   HERO
-============================================================ */
 #hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 60px;position:relative;z-index:2;}
 .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%;max-width:1200px;margin:0 auto;}
 .hero-left{display:flex;flex-direction:column;gap:1.4rem;}
@@ -129,8 +84,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;backdrop-filter:blur(20px) s
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(247,0,192,.35);}
 .btn-secondary{background:transparent;border:1px solid var(--border);color:var(--text);}
 .btn-secondary:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px);}
-
-/* 3D FLOATING CARD */
 .hero-right{display:flex;justify-content:center;align-items:center;position:relative;}
 .card-scene{perspective:900px;width:300px;height:380px;}
 .hero-card{width:100%;height:100%;background:linear-gradient(145deg,rgba(61,45,232,.15),rgba(247,0,192,.1));border:1px solid rgba(255,255,255,.1);border-radius:24px;backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:2rem;animation:float3d 6s ease-in-out infinite;transform-style:preserve-3d;position:relative;z-index:2;box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 40px rgba(61,45,232,.15);}
@@ -142,62 +95,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;backdrop-filter:blur(20px) s
 .stat{background:rgba(255,255,255,.05);border-radius:10px;padding:.6rem .3rem;text-align:center;}
 .stat-val{font-family:var(--font-head);font-size:1.15rem;font-weight:800;background:linear-gradient(135deg,var(--cyan),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .stat-lbl{font-size:.63rem;color:var(--muted);display:block;margin-top:2px;}
-/* Spinning ring */
 .spin-ring{position:absolute;width:320px;height:320px;border:2px dashed rgba(0,229,255,.25);border-radius:50%;animation:spinRing 12s linear infinite;pointer-events:none;z-index:1;}
 @keyframes spinRing{to{transform:rotate(360deg);}}
-/* Glowing orb */
 .glow-orb{position:absolute;width:280px;height:280px;background:radial-gradient(circle,rgba(61,45,232,.35) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;animation:orbPulse 4s ease-in-out infinite;}
 @keyframes orbPulse{0%,100%{transform:scale(1);opacity:.6;}50%{transform:scale(1.15);opacity:1;}}
-
-/* ============================================================
-   SECTION COMMONS
-============================================================ */
 section{padding:100px 5%;position:relative;z-index:2;}
 .section-header{text-align:center;margin-bottom:4rem;}
 .section-label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:.7rem;}
 .section-title{font-family:var(--font-head);font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.1;}
 .section-title span{background:linear-gradient(90deg,var(--pink),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .section-line{width:60px;height:3px;background:linear-gradient(90deg,var(--indigo),var(--pink));margin:1rem auto 0;border-radius:2px;}
-
-/* REVEAL ANIMATIONS */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .reveal-left{opacity:0;transform:translateX(-50px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
 .reveal-left.visible{opacity:1;transform:translateX(0);}
 .reveal-right{opacity:0;transform:translateX(50px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
 .reveal-right.visible{opacity:1;transform:translateX(0);}
-
-/* ============================================================
-   MARQUEE
-============================================================ */
 .marquee-section{padding:30px 0;background:linear-gradient(90deg,rgba(61,45,232,.07),rgba(247,0,192,.07));border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;position:relative;z-index:2;}
 .marquee-track{display:flex;gap:2.5rem;animation:marqueeScroll 30s linear infinite;white-space:nowrap;}
 .marquee-item{font-family:var(--font-head);font-size:.85rem;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:.8rem;padding:0 1rem;}
 .marquee-item::after{content:'✦';color:var(--pink);font-size:.7rem;}
 @keyframes marqueeScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-
-/* ============================================================
-   SKILLS
-============================================================ */
 #skills{background:var(--bg2);}
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:1000px;margin:0 auto 3rem;}
-.skill-item{}
-.skill-meta{display:flex;justify-content:space-between;margin-bottom:.5rem;}
-.skill-name{font-weight:600;font-size:.9rem;}
-.skill-pct{font-size:.85rem;color:var(--cyan);font-family:var(--font-head);}
-.skill-track{height:6px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;}
-.skill-fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--indigo),var(--pink));transition:width 1.2s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;}
-.skill-fill.active{animation:none;}
-.skill-fill::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:translateX(-100%);animation:shimmerBar 1.5s .8s ease forwards;}
-@keyframes shimmerBar{to{transform:translateX(200%);}}
-
 .tech-cloud{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;max-width:900px;margin:0 auto;}
 .tech-chip{background:rgba(255,255,255,.05);border:1px solid var(--border);padding:.4rem 1rem;border-radius:50px;font-size:.8rem;font-weight:500;color:var(--muted);cursor:default;transition:all .3s;}
 .tech-chip:hover{transform:translateY(-4px);background:rgba(0,229,255,.08);border-color:rgba(0,229,255,.3);color:var(--cyan);}
-
-/* ============================================================
-   EXPERIENCE
-============================================================ */
 .timeline{position:relative;max-width:800px;margin:0 auto;padding-left:40px;}
 .timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:2px;background:linear-gradient(var(--indigo),var(--pink),var(--cyan));}
 .tl-item{position:relative;margin-bottom:2.5rem;}
@@ -217,10 +139,6 @@ section{padding:100px 5%;position:relative;z-index:2;}
 .tag-blue{background:rgba(0,229,255,.08);color:var(--cyan);border:1px solid rgba(0,229,255,.2);}
 .tag-pink{background:rgba(247,0,192,.08);color:var(--pink);border:1px solid rgba(247,0,192,.2);}
 .tag-amber{background:rgba(255,179,0,.08);color:var(--amber);border:1px solid rgba(255,179,0,.2);}
-
-/* ============================================================
-   PROJECTS
-============================================================ */
 #projects{background:var(--bg2);}
 .projects-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1.5rem;max-width:1200px;margin:0 auto;align-items:stretch;}
 .proj-card{grid-column:span 2;min-width:0;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem;position:relative;overflow:hidden;transition:all .35s;display:flex;flex-direction:column;gap:.9rem;}
@@ -230,7 +148,6 @@ section{padding:100px 5%;position:relative;z-index:2;}
 .proj-emoji{font-size:2rem;}
 .proj-name{font-family:var(--font-head);font-size:1rem;font-weight:700;}
 .proj-link{font-size:.72rem;color:var(--cyan);font-weight:600;}
-.proj-desc{font-size:.84rem;color:var(--muted);line-height:1.6;flex:1;}
 .proj-stack{display:flex;flex-wrap:wrap;gap:.4rem;}
 .proj-tag{font-size:.7rem;padding:.2rem .6rem;border-radius:4px;background:rgba(255,255,255,.05);color:var(--muted);border:1px solid var(--border);font-family:var(--font-head);font-weight:600;}
 .proj-embed{position:relative;width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface2);}
@@ -245,10 +162,6 @@ section{padding:100px 5%;position:relative;z-index:2;}
 .proj-btn-gh{color:var(--pink);border-color:rgba(247,0,192,.3);}
 .proj-btn-gh:hover{background:rgba(247,0,192,.1);}
 .proj-arch{font-family:'Courier New',monospace;font-size:.72rem;color:var(--muted);background:rgba(255,255,255,.03);border:1px dashed var(--border);border-radius:8px;padding:.5rem .7rem;white-space:normal;overflow-wrap:anywhere;line-height:1.5;}
-
-/* ============================================================
-   EDUCATION & LANGUAGES
-============================================================ */
 .edu-lang-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:900px;margin:0 auto;}
 .edu-cards{display:flex;flex-direction:column;gap:1rem;}
 .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.3rem;}
@@ -266,10 +179,6 @@ section{padding:100px 5%;position:relative;z-index:2;}
 .cert-card{background:rgba(255,179,0,.05);border:1px solid rgba(255,179,0,.15);border-radius:12px;padding:1rem;display:flex;align-items:center;gap:.8rem;}
 .cert-icon{font-size:1.2rem;}
 .cert-name{font-size:.85rem;font-weight:600;color:var(--amber);}
-
-/* ============================================================
-   CONTACT
-============================================================ */
 #contact{background:var(--bg2);}
 .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:900px;margin:0 auto;}
 .contact-cards{display:flex;flex-direction:column;gap:1rem;}
@@ -282,8 +191,6 @@ section{padding:100px 5%;position:relative;z-index:2;}
 .ci-avail{background:rgba(247,0,192,.1);}
 .contact-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.15rem;}
 .contact-val{font-size:.9rem;font-weight:600;word-break:break-all;}
-
-/* RIPPLE AVATAR */
 .ripple-wrap{display:flex;align-items:center;justify-content:center;position:relative;height:280px;}
 .ripple-avatar{width:110px;height:110px;background:linear-gradient(135deg,var(--indigo),var(--pink));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:2rem;font-weight:800;color:#fff;position:relative;z-index:2;box-shadow:0 0 40px rgba(247,0,192,.4);}
 .ripple{position:absolute;border-radius:50%;border:1.5px solid;animation:rippleOut 2.5s ease-out infinite;opacity:0;}
@@ -291,21 +198,12 @@ section{padding:100px 5%;position:relative;z-index:2;}
 .r2{width:220px;height:220px;border-color:rgba(247,0,192,.3);animation-delay:.6s;}
 .r3{width:280px;height:280px;border-color:rgba(61,45,232,.2);animation-delay:1.2s;}
 @keyframes rippleOut{0%{transform:scale(.7);opacity:.8;}100%{transform:scale(1);opacity:0;}}
-
-/* ============================================================
-   FOOTER
-============================================================ */
 footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);border-top:1px solid var(--border);position:relative;z-index:2;}
-
-/* ============================================================
-   RESPONSIVE
-============================================================ */
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;text-align:center;}
   .hero-left{align-items:center;}
   .hero-title{text-align:center;}
   .hero-right{margin-top:2rem;}
-  .skills-grid{grid-template-columns:1fr;}
   .projects-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   .proj-card,.proj-card--featured{grid-column:auto;}
   .edu-lang-grid{grid-template-columns:1fr;}
@@ -321,21 +219,17 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
 </head>
 <body>
 
-<!-- CUSTOM CURSOR -->
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
 
-<!-- LOADER -->
 <div id="loader">
   <div class="loader-initials">MB</div>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
   <div class="loader-text">Loading portfolio…</div>
 </div>
 
-<!-- PARTICLE CANVAS -->
 <canvas id="particle-canvas"></canvas>
 
-<!-- NAVBAR -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">Mohamed Bouallagui</a>
   <ul class="nav-links" id="nav-links">
@@ -359,13 +253,12 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-left reveal">
       <div class="avail-badge"><span class="avail-dot"></span>Available in Doha, Qatar</div>
       <h1 class="hero-name">Mohamed<br>Bouallagui</h1>
-      <p class="hero-title">Software Engineer — <span>Backend, Microservices &amp; Distributed Systems</span>, with hands-on production experience integrating LLM agents and RAG.</p>
+      <p class="hero-title">Software Engineer — <span>Backend, Microservices &amp; Distributed Systems</span>, building secure, event-driven platforms for fintech and marketplace use cases.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary">Get In Touch ↗</a>
         <a href="#projects" class="btn btn-secondary">View Projects</a>
@@ -379,11 +272,11 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
           <div class="hero-card">
             <div class="card-avatar">MB</div>
             <div class="card-name">Mohamed Bouallagui</div>
-            <div class="card-role">Full-Stack · Microservices · AI/RAG</div>
+            <div class="card-role">Full-Stack · Microservices · Event-Driven</div>
             <div class="card-stats">
               <div class="stat"><div class="stat-val">5</div><span class="stat-lbl">Yrs Exp.</span></div>
               <div class="stat"><div class="stat-val">40%</div><span class="stat-lbl">Latency ↓</span></div>
-              <div class="stat"><div class="stat-val">15+</div><span class="stat-lbl">Services</span></div>
+              <div class="stat"><div class="stat-val">12</div><span class="stat-lbl">Services</span></div>
             </div>
           </div>
         </div>
@@ -392,13 +285,13 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-section">
   <div class="marquee-track" id="marquee-track">
     <span class="marquee-item">ATB Bank</span>
     <span class="marquee-item">ISE</span>
     <span class="marquee-item">Rigoo Marine</span>
     <span class="marquee-item">Grocery Marketplace</span>
+    <span class="marquee-item">Rashfa Cafe</span>
     <span class="marquee-item">ESPRIT University</span>
     <span class="marquee-item">Kafka</span>
     <span class="marquee-item">Redis Streams</span>
@@ -411,12 +304,12 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
     <span class="marquee-item">Docker</span>
     <span class="marquee-item">OAuth2</span>
     <span class="marquee-item">React</span>
-    <span class="marquee-item">OpenAI / Claude RAG</span>
     <span class="marquee-item">WordPress</span>
     <span class="marquee-item">ATB Bank</span>
     <span class="marquee-item">ISE</span>
     <span class="marquee-item">Rigoo Marine</span>
     <span class="marquee-item">Grocery Marketplace</span>
+    <span class="marquee-item">Rashfa Cafe</span>
     <span class="marquee-item">ESPRIT University</span>
     <span class="marquee-item">Kafka</span>
     <span class="marquee-item">Redis Streams</span>
@@ -429,29 +322,15 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
     <span class="marquee-item">Docker</span>
     <span class="marquee-item">OAuth2</span>
     <span class="marquee-item">React</span>
-    <span class="marquee-item">OpenAI / Claude RAG</span>
     <span class="marquee-item">WordPress</span>
   </div>
 </div>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-header reveal">
     <div class="section-label">What I Know</div>
     <h2 class="section-title">Technical <span>Skills</span></h2>
     <div class="section-line"></div>
-  </div>
-  <div class="skills-grid">
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Java (Spring Boot), Node.js &amp; Fastify</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-fill" data-width="95"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Microservices Architecture</span><span class="skill-pct">92%</span></div><div class="skill-track"><div class="skill-fill" data-width="92"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Kafka &amp; Redis Streams (Event-Driven)</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-width="90"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Docker / Kubernetes / CI-CD</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-width="85"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">PostgreSQL / MongoDB / Elasticsearch</span><span class="skill-pct">87%</span></div><div class="skill-track"><div class="skill-fill" data-width="87"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">OAuth2 / Keycloak / JWT</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-width="90"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">React &amp; TypeScript Frontend</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-width="80"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">LLM Integration &amp; RAG (OpenAI / Claude)</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-width="85"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">WordPress &amp; CMS Development</span><span class="skill-pct">78%</span></div><div class="skill-track"><div class="skill-fill" data-width="78"></div></div></div>
-    <div class="skill-item reveal"><div class="skill-meta"><span class="skill-name">Applied ML / Data Science Fundamentals</span><span class="skill-pct">72%</span></div><div class="skill-track"><div class="skill-fill" data-width="72"></div></div></div>
   </div>
   <div class="tech-cloud reveal">
     <span class="tech-chip">Java</span><span class="tech-chip">Spring Boot</span><span class="tech-chip">Spring Cloud</span>
@@ -463,15 +342,13 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
     <span class="tech-chip">Docker</span><span class="tech-chip">Kubernetes</span><span class="tech-chip">CI/CD</span>
     <span class="tech-chip">GitHub Actions</span><span class="tech-chip">OAuth2</span><span class="tech-chip">JWT</span>
     <span class="tech-chip">Keycloak</span><span class="tech-chip">RBAC</span><span class="tech-chip">SSO</span>
-    <span class="tech-chip">Stripe Payments</span><span class="tech-chip">LLM Agents / Chatbots</span>
-    <span class="tech-chip">RAG Pipelines</span><span class="tech-chip">Cursor (AI Dev)</span>
+    <span class="tech-chip">Stripe Payments</span><span class="tech-chip">Tesseract OCR</span>
     <span class="tech-chip">WordPress</span><span class="tech-chip">360° Virtual Tours</span>
     <span class="tech-chip">DDD</span><span class="tech-chip">Event Sourcing / Outbox</span>
-    <span class="tech-chip">PCI-DSS</span><span class="tech-chip">Arabic RTL / i18n</span>
+    <span class="tech-chip">PCI-DSS (working knowledge)</span><span class="tech-chip">Arabic RTL / i18n</span>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-header reveal">
     <div class="section-label">Career Journey</div>
@@ -483,20 +360,20 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="tl-dot"></div>
       <div class="tl-card">
         <div class="tl-header">
-          <span class="tl-title">Full Stack Engineering Consultant, Backend &amp; Distributed Systems</span>
-          <span class="tl-date">Aug 2025 — Present</span>
+          <span class="tl-title">Full Stack Engineering Consultant — Rigoo Marine</span>
+          <span class="tl-date">Aug 2025 — Mar 2026</span>
         </div>
-        <div class="tl-company">📍 Independent Consultant, Fintech &amp; Enterprise Clients · Doha, Qatar</div>
+        <div class="tl-company">📍 Independent Consultant · Marine services, Doha, Qatar</div>
         <ul class="tl-bullets">
-          <li>Sole engineer on Rigoo Marine, a bilingual (Arabic/English, full RTL) marine-services platform for the Qatar market — owned the architecture, a 10-service Spring Cloud backend, the React frontend, and Dockerized deployment end-to-end</li>
-          <li>Built back-pressure controls and bounded resource use into the service mesh so the platform scales horizontally under load without cascading failures</li>
-          <li>Layered Redis caching with a CDN to keep API latency low, and wired in Prometheus metrics and distributed tracing so problems surface and get traced quickly instead of going unnoticed</li>
-          <li>Applied circuit breaker, retry, and bulkhead patterns across the service mesh, so a failing dependency degrades gracefully rather than taking the whole platform down with it</li>
-          <li>Worked directly with fintech clients on PCI-DSS architecture reviews and helped them align security posture with Qatar Central Bank requirements</li>
+          <li>Sole engineer on Rigoo Marine, a live bilingual (Arabic/English, full RTL) marine-services platform with online booking for the Qatar market — owned the architecture, a 12-service Spring Cloud backend, the React frontend, and Dockerized deployment end-to-end</li>
+          <li>Secured services with per-service JWT and Redis-backed gateway rate limiting</li>
+          <li>Instrumented Prometheus metrics and distributed tracing for rapid problem detection and diagnosis</li>
+          <li>Applied circuit breaker, retry, and bulkhead patterns so failing dependencies degrade gracefully</li>
+          <li>Integrated Stripe Checkout with idempotent webhook ingestion across the parts shop and invoicing</li>
         </ul>
         <div class="tl-tags">
           <span class="tl-tag tag-green">Spring Cloud</span>
-          <span class="tl-tag tag-blue">PCI-DSS</span>
+          <span class="tl-tag tag-blue">Prometheus &amp; Tracing</span>
           <span class="tl-tag tag-pink">Qatar Market</span>
           <span class="tl-tag tag-amber">Sole Engineer</span>
         </div>
@@ -511,16 +388,16 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
         </div>
         <div class="tl-company">🏦 Arab Tunisian Bank (ATB) — Final-Year Engineering Internship</div>
         <ul class="tl-bullets">
-          <li>Rolled out a Keycloak-based IAM platform for 10,000+ users covering RBAC, SSO, and MFA, building the auth flows specifically to satisfy banking audit and compliance requirements</li>
-          <li>Decomposed the monolith into 15+ independently deployable microservices communicating over async Kafka topics; Saga and outbox patterns kept data consistent across service boundaries</li>
-          <li>Built an OCR pipeline for document ingestion that reached 95% classification accuracy and cut the manual review workload by 80%</li>
-          <li>Kept PCI-DSS compliance intact across transaction handling, data storage, and access control, with each layer audited and verified</li>
+          <li>Built a Spring Cloud platform of 9 modules (Gateway, Eureka, Config Server, five business services, shared library) communicating through asynchronous Kafka events</li>
+          <li>Secured the gateway and every service with Keycloak SSO and role-based access (OIDC/JWT)</li>
+          <li>Built a document pipeline for multilingual Tesseract OCR (French/Arabic/English) of cheques, bills and IDs, plus a fraud-scoring service flagging a 0–1 risk score at 0.7</li>
+          <li>Deployed an 11-service Docker Compose stack with Prometheus, Grafana, Fluentd/Elasticsearch logging and Zipkin tracing</li>
         </ul>
         <div class="tl-tags">
           <span class="tl-tag tag-blue">Keycloak IAM</span>
-          <span class="tl-tag tag-green">Kafka Microservices</span>
-          <span class="tl-tag tag-pink">OCR &amp; ML</span>
-          <span class="tl-tag tag-amber">10K+ Users</span>
+          <span class="tl-tag tag-green">Kafka Events</span>
+          <span class="tl-tag tag-pink">Tesseract OCR</span>
+          <span class="tl-tag tag-amber">11-Service Stack</span>
         </div>
       </div>
     </div>
@@ -555,7 +432,7 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
           <span class="tl-title">Telecom Infrastructure &amp; Software Support</span>
           <span class="tl-date">2018 — 2021</span>
         </div>
-        <div class="tl-company">📡 Network eXpertise / Orange LTE, Alliance et Performance, Monsef Bey Technology Center · Tunisia</div>
+        <div class="tl-company">📡 Network eXpertise / Orange LTE, FIRSTCOM, Alliance et Performance, Monsef Bey Technology Center · Tunisia</div>
         <ul class="tl-bullets">
           <li>Telecom infrastructure (2018–2019): led LTE/4G network deployment and optimisation, including a technician team at Network eXpertise (Orange GSM/LTE), with proactive monitoring to improve network stability</li>
           <li>Engineering &amp; IoT support (Alliance et Performance, 2019–2020): resolved hardware/software integration issues and troubleshot deployment problems alongside engineering teams</li>
@@ -589,7 +466,6 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-header reveal">
     <div class="section-label">What I've Built</div>
@@ -611,56 +487,75 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
       <div class="proj-arch">Client (React) → Fastify API → Outbox → Redis Streams → PostgreSQL / Elasticsearch</div>
       <ul class="tl-bullets">
         <li>Multi-vendor grocery delivery marketplace: local supermarkets run their own storefront while customers browse nearby stores, order, and track delivery live — covers onboarding, catalog, cart, checkout, fulfillment, billing, and admin reporting end-to-end</li>
-        <li>Built the API on Fastify and TypeScript with Drizzle ORM over PostgreSQL, structured as a modular monolith that can be split into standalone services per module without a rewrite</li>
+        <li>Built the API on Fastify and TypeScript with Drizzle ORM over PostgreSQL, structured as a modular monolith</li>
         <li>Implemented a transactional outbox feeding Redis Streams as the event bus, so domain events (order placed, ready, delivered, cancelled) are never lost even if a downstream consumer is temporarily down</li>
         <li>Integrated Stripe for both customer payments (PaymentIntents, idempotent webhooks) and vendor subscriptions (per-store pricing, trial periods, grace period on failed payment, automatic suspension)</li>
         <li>Built a configurable rider dispatch engine and live GPS tracking over WebSocket, plus Elasticsearch-backed geo/full-text search for store and product discovery</li>
-        <li>Built an LLM-powered agent (OpenAI/Claude API) with RAG over the store and product catalog, covering product search assistance, order support, and store recommendations</li>
+        <li>Designed the retrieval layer (Elasticsearch, kept in sync by the event stream) as the foundation for a planned LLM agent with RAG</li>
       </ul>
       <div class="proj-stack">
         <span class="proj-tag">Fastify</span><span class="proj-tag">TypeScript</span><span class="proj-tag">Drizzle ORM</span>
         <span class="proj-tag">PostgreSQL</span><span class="proj-tag">Redis Streams</span><span class="proj-tag">Elasticsearch</span>
-        <span class="proj-tag">Stripe</span><span class="proj-tag">LLM / RAG</span>
+        <span class="proj-tag">Stripe</span>
       </div>
     </div>
     <div class="proj-card proj-card--featured reveal" style="transition-delay:.1s">
       <div class="proj-emoji">🚢</div>
       <div class="proj-name">Rigoo Marine Platform</div>
-      <span class="proj-link" style="color:var(--muted);">Mar — Jun 2026</span>
+      <span class="proj-link" style="color:var(--muted);">Aug 2025 — Mar 2026</span>
       <div class="proj-embed">
         <iframe src="https://rigoo-marine-frontend.vercel.app/" title="Rigoo Marine — live preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
       </div>
       <div class="proj-buttons">
         <a href="https://rigoo-marine-frontend.vercel.app/" target="_blank" class="proj-btn proj-btn-live">Live Preview ↗</a>
+        <a href="https://rigoomarine.com" target="_blank" class="proj-btn proj-btn-vercel">rigoomarine.com ↗</a>
         <a href="https://github.com/HamaRigo/rigoo-marine" target="_blank" class="proj-btn proj-btn-gh">GitHub ↗</a>
       </div>
-      <div class="proj-arch">React (Vite/MUI) → Spring Cloud Gateway (Eureka) → 10 Microservices → PostgreSQL</div>
+      <div class="proj-arch">React (Vite/MUI) → Spring Cloud Gateway (Eureka) → 12 Microservices → PostgreSQL</div>
       <ul class="tl-bullets">
         <li>Sole engineer on a live platform for a real Qatar marine-services company: clients book service against their vessels, buy parts and tools, and browse a used-boat marketplace, all in Arabic or English, with technicians and admins on their own dashboards</li>
-        <li>Architected and shipped a 10-service Spring Boot 3.2 / Java 17 backend behind a Spring Cloud Gateway with Eureka service discovery, per-service JWT security, and Redis-backed gateway rate limiting</li>
+        <li>Architected and shipped a 12-service Spring Boot 3.2 / Java 17 backend behind a Spring Cloud Gateway with Eureka service discovery, per-service JWT security, and Redis-backed gateway rate limiting</li>
         <li>Integrated Stripe Checkout with idempotent webhook ingestion across the parts-and-tools shop and invoicing (quotations, PDF export); checkout degrades safely to a "payments not configured" path when unkeyed</li>
-        <li>Built a fully bilingual React 18 + Vite + MUI frontend with end-to-end Arabic RTL (Emotion + stylis-plugin-rtl, react-i18next) and three role-based dashboards</li>
+        <li>Built a fully bilingual React 18 + Vite + MUI frontend with end-to-end Arabic RTL (Emotion + stylis-plugin-rtl, react-i18next) and five role-based dashboards (client, technician, team lead, delivery, admin)</li>
         <li>Implemented phone-as-primary-identity auth (E.164 via libphonenumber), per-module Flyway migrations on PostgreSQL 15, and Dockerized the full stack with healthcheck-gated startup ordering and CI/CD via GitHub Actions</li>
-        <li>Integrated an LLM-powered chatbot/agent (OpenAI/Claude API) to handle client-facing support, with RAG over the platform's service and parts catalog so responses stay grounded in real data</li>
       </ul>
       <div class="proj-stack">
         <span class="proj-tag">Spring Boot</span><span class="proj-tag">Java 17</span><span class="proj-tag">Spring Cloud</span>
-        <span class="proj-tag">React</span><span class="proj-tag">Stripe</span><span class="proj-tag">LLM / RAG</span>
+        <span class="proj-tag">React</span><span class="proj-tag">Stripe</span>
       </div>
     </div>
     <div class="proj-card reveal" style="transition-delay:.2s">
       <div class="proj-emoji">🔍</div>
-      <div class="proj-name">Fraud Detection &amp; Real-Time Event Processing</div>
+      <div class="proj-name">OCR &amp; Fraud Detection Platform (ATB)</div>
       <a href="https://github.com/HamaRigo/realtime-fraud-pipeline" target="_blank" class="proj-link">github.com/HamaRigo/realtime-fraud-pipeline ↗</a>
-      <span class="proj-link" style="color:var(--muted);">2023 — 2024</span>
-      <div class="proj-arch">Transaction Stream → Kafka (partitioned) → Rule Engine + ML Scorer → Prometheus Alerts</div>
+      <span class="proj-link" style="color:var(--muted);">Sep 2024 — Feb 2025 · End-of-studies project</span>
+      <div class="proj-arch">Upload → Tesseract OCR → Fraud Scorer (0–1) → Kafka: ocr-results / fraud-alerts</div>
       <ul class="tl-bullets">
-        <li>Built a partitioned Kafka pipeline with exactly-once semantics for financial transaction processing; consumer groups, dead-letter queues, and replay logic kept the pipeline available through upstream failures</li>
-        <li>Combined deterministic rule-based checks with an ML-assisted scoring model in the detection layer; the hybrid approach caught more than the old rule-only system without adding false positives</li>
-        <li>Added Prometheus alerting and structured logging across the pipeline so anomalies could be isolated and triaged without manually inspecting Kafka offsets</li>
+        <li>Scored OCR-processed cheques, bills and IDs for fraud on a 0–1 scale, flagging results at 0.7 through Kafka topics ocr-results and fraud-alerts</li>
+        <li>Secured every service with Keycloak SSO and kept the pipeline running through scoring-service outages with graceful degradation</li>
+        <li>Observability via Prometheus, Grafana, Fluentd/Elasticsearch and Zipkin in an 11-service Docker Compose stack</li>
       </ul>
       <div class="proj-stack">
-        <span class="proj-tag">Kafka</span><span class="proj-tag">ML Scoring</span><span class="proj-tag">Prometheus</span><span class="proj-tag">Java</span>
+        <span class="proj-tag">Spring Cloud</span><span class="proj-tag">Kafka</span><span class="proj-tag">Keycloak</span><span class="proj-tag">Tesseract OCR</span>
+      </div>
+    </div>
+    <div class="proj-card reveal" style="transition-delay:.25s">
+      <div class="proj-emoji">☕</div>
+      <div class="proj-name">Rashfa Cafe — Bilingual QR Menu</div>
+      <span class="proj-link" style="color:var(--muted);">Apr 2026 · Doha, Qatar</span>
+      <div class="proj-embed">
+        <iframe src="https://hamarigo.github.io/rashfa-cafe-restaurent-menu/" title="Rashfa Cafe — live preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      </div>
+      <div class="proj-buttons">
+        <a href="https://hamarigo.github.io/rashfa-cafe-restaurent-menu/" target="_blank" class="proj-btn proj-btn-live">Live Preview ↗</a>
+        <a href="https://github.com/HamaRigo/rashfa-cafe-restaurent-menu" target="_blank" class="proj-btn proj-btn-gh">GitHub ↗</a>
+      </div>
+      <ul class="tl-bullets">
+        <li>Bilingual Arabic RTL / English single-page menu reached by QR code, with a language toggle</li>
+        <li>Five categories priced in QAR rendered from structured data; story, gallery and visit sections with WhatsApp and Instagram links</li>
+      </ul>
+      <div class="proj-stack">
+        <span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">Vanilla JS</span><span class="proj-tag">Arabic RTL</span>
       </div>
     </div>
     <div class="proj-card reveal" style="transition-delay:.3s">
@@ -693,7 +588,6 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
   </div>
 </section>
 
-<!-- EDUCATION & LANGUAGES -->
 <section id="education">
   <div class="section-header reveal">
     <div class="section-label">Background</div>
@@ -706,7 +600,7 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
         <div class="edu-card">
           <div class="edu-degree">🎓 Engineering Degree — Computer Engineering</div>
           <div class="edu-school">ESPRIT — École Supérieure Privée d'Ingénierie et de Technologie</div>
-          <div class="edu-year">Graduated 2025</div>
+          <div class="edu-year">Graduated 2025 · Night/part-time program, while employed full-time</div>
         </div>
         <div class="edu-card">
           <div class="edu-degree">🎓 Bachelor Degree — Computer Science</div>
@@ -756,7 +650,6 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-header reveal">
     <div class="section-label">Let's Connect</div>
@@ -806,18 +699,10 @@ footer{text-align:center;padding:2rem 5%;font-size:.8rem;color:var(--muted);bord
 </footer>
 
 <script>
-/* ============================================================
-   LOADER
-============================================================ */
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('hide');
-  }, 2200);
+  setTimeout(() => { document.getElementById('loader').classList.add('hide'); }, 2200);
 });
 
-/* ============================================================
-   CUSTOM CURSOR
-============================================================ */
 const dot = document.getElementById('cursor-dot');
 const ring = document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
@@ -832,9 +717,6 @@ document.querySelectorAll('a,button,.btn,.proj-card,.tl-card,.contact-card').for
   el.addEventListener('mouseleave',()=>{ ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='rgba(0,229,255,.5)'; dot.style.transform='translate(-50%,-50%) scale(1)'; });
 });
 
-/* ============================================================
-   PARTICLE CANVAS
-============================================================ */
 (function(){
   const canvas = document.getElementById('particle-canvas');
   const ctx = canvas.getContext('2d');
@@ -884,34 +766,12 @@ document.querySelectorAll('a,button,.btn,.proj-card,.tl-card,.contact-card').for
   window.addEventListener('resize',()=>{ resize(); init(); });
 })();
 
-/* ============================================================
-   SCROLL REVEAL + SKILL BARS
-============================================================ */
 const revealEls = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
 const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      // Skill bars
-      entry.target.querySelectorAll('.skill-fill[data-width]').forEach(bar=>{
-        bar.style.width = bar.dataset.width+'%';
-      });
-    }
-  });
+  entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
 },{threshold:.12});
 revealEls.forEach(el=>observer.observe(el));
 
-// Also observe skill fills directly
-const skillObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.style.width = entry.target.dataset.width+'%';
-    }
-  });
-},{threshold:.3});
-document.querySelectorAll('.skill-fill[data-width]').forEach(bar=>skillObserver.observe(bar));
-
-// Scale live previews so the full desktop site fits its card
 (function(){
   const W = 1280, H = 800;
   function fit(box){
